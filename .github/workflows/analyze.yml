@@ -1,0 +1,66 @@
+name: research-analyze
+# Stage 2: measured analysis of the episodes listed in research/top30.csv.
+# Media is downloaded to the runner only and deleted; it is never committed.
+# Public output: numeric metrics. Transcripts + frame contact sheets are encrypted
+# with the research team's age public key (AGE_RECIPIENT) before leaving the runner.
+on:
+  workflow_dispatch:
+  push:
+    paths: ["research/pipeline/requests/analyze.request"]
+permissions:
+  contents: write
+env:
+  AGE_RECIPIENT: age17s0943yf387pqy2ksk6fqmre2azrmq2e6zhjqlx9nqllvc7tuaasjdxten
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      ids: ${{ steps.m.outputs.ids }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: m
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import csv, json
+          rows = list(csv.DictReader(open("research/top30.csv")))
+          print("ids=" + json.dumps([{"ns": r["ns_id"], "vid": r["video_id"]} for r in rows]))
+          PY
+  episode:
+    needs: plan
+    if: needs.plan.outputs.ids != '[]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 6
+      matrix:
+        ep: ${{ fromJson(needs.plan.outputs.ids) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: sudo apt-get update -q && sudo apt-get install -y -q ffmpeg age
+      - run: pip install -U "yt-dlp[default]" "opencv-python-headless<5" "scenedetect[opencv-headless]" librosa soundfile faster-whisper numpy
+      - name: Analyze ${{ matrix.ep.ns }}
+        env: { ASR_MODEL: small }
+        run: python research/pipeline/analyze_episode.py --ns ${{ matrix.ep.ns }} --video-id ${{ matrix.ep.vid }} --out out/episodes --age-recipient "$AGE_RECIPIENT" --asr
+      - uses: actions/upload-artifact@v4
+        with: { name: "res-${{ matrix.ep.ns }}", path: out/, retention-days: 3 }
+  commit:
+    needs: [plan, episode]
+    if: always() && needs.plan.outputs.ids != '[]'
+    runs-on: ubuntu-latest
+    concurrency: { group: research-commit, cancel-in-progress: false }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: { path: dl, pattern: "res-*", merge-multiple: true }
+      - run: |
+          mkdir -p research/data/episodes research/data/private
+          cp -r dl/episodes/. research/data/episodes/ || true
+          cp -r dl/private/. research/data/private/ || true
+          git config user.name "research-bot"
+          git config user.email "research-bot@users.noreply.github.com"
+          git add research/data/episodes research/data/private
+          git commit -m "data: measured episode metrics (+ encrypted review packs)" || exit 0
+          for i in 1 2 3 4; do git pull --rebase && git push && break; sleep $((i*5)); done
