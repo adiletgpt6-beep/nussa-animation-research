@@ -1,0 +1,84 @@
+{
+ "video_id": "cXudgA53afQ",
+ "duration_s": 389,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "cached",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 98,
+ "manual_id_word_count": 753,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 85,
+ "word_count": 515,
+ "non_speech_markers": [
+  "[Musik]"
+ ],
+ "non_speech_marker_count": 1,
+ "first_speech_s": 0.0,
+ "last_speech_s": 368.55,
+ "wpm_over_full_duration": 79.4,
+ "speech_active_s": 323.2,
+ "wpm_over_active_speech": 95.6,
+ "pauses_ge_3s": 5,
+ "longest_pauses": [
+  [
+   14.5,
+   11.5
+  ],
+  [
+   156.5,
+   8.3
+  ],
+  [
+   0.0,
+   7.4
+  ],
+  [
+   222.6,
+   3.5
+  ],
+  [
+   7.4,
+   3.2
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 1,
+ "words_first_10s": 2,
+ "words_first_30s": 14,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "160x90",
+ "storyboard_interval_s": 4.92,
+ "storyboard_frames": 79,
+ "frame_diff_mean": 44.5,
+ "frame_changes_gt25": 57,
+ "manual_lines": 98,
+ "manual_words_excl_labels": 648,
+ "manual_first_line_s": 27.36,
+ "manual_question_marks": 13,
+ "manual_exclamation_marks": 12,
+ "manual_words_by_speaker_label": {
+  "Rarra": 209,
+  "Nussa": 169,
+  "Syifa": 85,
+  "Abdul": 71,
+  "Pak Ucok": 68,
+  "Pembeli": 35,
+  "Umma": 11
+ },
+ "ns_id": "NS-004",
+ "view_count": 70517766,
+ "upload_date": "20201029",
+ "flat_title_english": "NUSSA: LEARN SALES",
+ "storyboard_frames_viewed": 79,
+ "story_start_s_approx": 27,
+ "distinct_shots_story_lower_bound": 60,
+ "avg_shot_len_story_s_upper_bound": 5.5,
+ "manual_wpm_full_duration": 99.9,
+ "shot_count_precision_note": "storyboard step ~4.9 s",
+ "analysis_completeness_pct": 40
+}
