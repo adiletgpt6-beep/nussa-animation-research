@@ -1,0 +1,84 @@
+{
+ "video_id": "rA1UA6CvyM4",
+ "duration_s": 280,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "cached",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 48,
+ "manual_id_word_count": 232,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 46,
+ "word_count": 221,
+ "non_speech_markers": [],
+ "non_speech_marker_count": 0,
+ "first_speech_s": 0.0,
+ "last_speech_s": 263.41,
+ "wpm_over_full_duration": 47.4,
+ "speech_active_s": 147.9,
+ "wpm_over_active_speech": 89.7,
+ "pauses_ge_3s": 14,
+ "longest_pauses": [
+  [
+   11.2,
+   19.2
+  ],
+  [
+   74.2,
+   11.8
+  ],
+  [
+   62.9,
+   8.2
+  ],
+  [
+   255.8,
+   7.6
+  ],
+  [
+   47.3,
+   6.7
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 7,
+ "words_first_10s": 13,
+ "words_first_30s": 17,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "160x90",
+ "storyboard_interval_s": 1.99,
+ "storyboard_frames": 141,
+ "frame_diff_mean": 17.7,
+ "frame_changes_gt25": 42,
+ "manual_lines": 48,
+ "manual_words_excl_labels": 197,
+ "manual_first_line_s": 30.8,
+ "manual_question_marks": 7,
+ "manual_exclamation_marks": 0,
+ "manual_words_by_speaker_label": {
+  "Nussa": 92,
+  "Rarra": 55,
+  "Umma": 50
+ },
+ "ns_id": "NS-001",
+ "view_count": 102086280,
+ "upload_date": "20190314",
+ "storyboard_frames_viewed": 141,
+ "story_start_s_approx": 31,
+ "promo_segment_s_approx": [
+  0,
+  12
+ ],
+ "intro_segment_s_approx": [
+  12,
+  31
+ ],
+ "distinct_shots_story_approx": 39,
+ "avg_shot_len_story_s_approx": 5.6,
+ "shot_count_precision_note": "storyboard step ~2 s; cuts shorter than ~2 s not visible",
+ "analysis_completeness_pct": 45
+}
