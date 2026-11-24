@@ -1,0 +1,92 @@
+{
+ "video_id": "3ZeKjAe2cjE",
+ "duration_s": 1013,
+ "caption_track": "id (auto-generated)",
+ "caption_http": "200+m3u8",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 148,
+ "manual_id_word_count": 1031,
+ "caption_track_is_plain_cues_not_asr": true,
+ "caption_track_note": "listed under automatic_captions but contains plain human-written cues (no ASR word timings); word times interpolated within cues",
+ "caption_cue_count": 149,
+ "word_count": 545,
+ "non_speech_markers": [],
+ "non_speech_marker_count": 0,
+ "first_speech_s": 52.6,
+ "last_speech_s": 740.78,
+ "wpm_over_full_duration": 32.3,
+ "speech_active_s": 289.4,
+ "wpm_over_active_speech": 113.0,
+ "pauses_ge_3s": 25,
+ "longest_pauses": [
+  [
+   498.0,
+   64.2
+  ],
+  [
+   283.0,
+   53.9
+  ],
+  [
+   563.2,
+   32.4
+  ],
+  [
+   112.3,
+   27.4
+  ],
+  [
+   411.4,
+   26.4
+  ]
+ ],
+ "question_marks": 15,
+ "exclamation_marks": 15,
+ "words_first_5s": 0,
+ "words_first_10s": 0,
+ "words_first_30s": 0,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "170x90",
+ "storyboard_interval_s": 9.83,
+ "storyboard_frames": 103,
+ "frame_diff_mean": 30.7,
+ "frame_changes_gt25": 59,
+ "manual_lines": 101,
+ "manual_words_excl_labels_dialogue_only": 560,
+ "manual_first_line_s": 52.6,
+ "manual_question_marks": 15,
+ "manual_exclamation_marks": 15,
+ "manual_words_by_speaker_label": {
+  "Tante Dewi": 199,
+  "Nussa": 191,
+  "Rarra": 94,
+  "Umma": 70,
+  "Nussa Rarra": 6
+ },
+ "narration_voiceover_lines": 38,
+ "narration_voiceover_words": 326,
+ "narration_first_s": 113.08,
+ "ns_id": "NS-010",
+ "view_count": 49098087,
+ "upload_date": "20191222",
+ "flags": [
+  "special (long, Mother's Day)",
+  "collab: music band KOTAK (song MV at end)"
+ ],
+ "story_segment_s": [
+  0,
+  737
+ ],
+ "music_video_segment_s_approx": [
+  737,
+  960
+ ],
+ "storyboard_frames_viewed": 103,
+ "letterbox": true,
+ "no_series_intro": true,
+ "shot_count": "not countable (storyboard step ~9.8 s)",
+ "analysis_completeness_pct": 30
+}
