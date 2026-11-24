@@ -1,0 +1,88 @@
+{
+ "video_id": "OBS_QZeEImY",
+ "duration_s": 241,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "200",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 43,
+ "manual_id_word_count": 281,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 43,
+ "word_count": 217,
+ "non_speech_markers": [
+  "[Musik]"
+ ],
+ "non_speech_marker_count": 1,
+ "first_speech_s": 0.0,
+ "last_speech_s": 224.49,
+ "wpm_over_full_duration": 54.0,
+ "speech_active_s": 148.4,
+ "wpm_over_active_speech": 87.7,
+ "pauses_ge_3s": 13,
+ "longest_pauses": [
+  [
+   10.0,
+   11.9
+  ],
+  [
+   214.8,
+   8.7
+  ],
+  [
+   199.8,
+   6.7
+  ],
+  [
+   158.6,
+   5.5
+  ],
+  [
+   84.3,
+   5.0
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 10,
+ "words_first_10s": 13,
+ "words_first_30s": 21,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "320x180",
+ "storyboard_interval_s": 1.98,
+ "storyboard_frames": 122,
+ "frame_diff_mean": 29.2,
+ "frame_changes_gt25": 50,
+ "manual_lines": 43,
+ "manual_words_excl_labels": 196,
+ "manual_first_line_s": 22.62,
+ "manual_question_marks": 5,
+ "manual_exclamation_marks": 14,
+ "manual_words_by_speaker_label": {
+  "Nussa": 86,
+  "Rarra": 55,
+  "Umma": 52,
+  "Nussa Rarra": 2,
+  "Rarra Umma": 1
+ },
+ "ns_id": "NS-011",
+ "view_count": 48128936,
+ "upload_date": "20190228",
+ "storyboard_frames_viewed": 122,
+ "story_start_s_approx": 22,
+ "promo_segment_s_approx": [
+  0,
+  10
+ ],
+ "distinct_shots_story_approx": 45,
+ "avg_shot_len_story_s_approx": 4.2,
+ "depicts_shaitan": true,
+ "depicts_prophets_angels": false,
+ "music_markers_asr": 1,
+ "music_verified_by_audio": false,
+ "shot_count_precision_note": "storyboard step ~2 s",
+ "analysis_completeness_pct": 50
+}
