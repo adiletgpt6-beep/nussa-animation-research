@@ -1,0 +1,12 @@
+# Never commit media, keys or secrets
+*.mp4
+*.webm
+*.mkv
+*.m4a
+*.wav
+*.key
+*age_key*
+.env
+.env.*
+__pycache__/
+work/
