@@ -1,0 +1,83 @@
+{
+ "video_id": "sghAqhta08E",
+ "duration_s": 413,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "cached",
+ "manual_subtitle_langs": [
+  "en"
+ ],
+ "manual_id_cues": null,
+ "manual_id_word_count": null,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 72,
+ "word_count": 395,
+ "non_speech_markers": [
+  "[Musik]"
+ ],
+ "non_speech_marker_count": 1,
+ "first_speech_s": 7.91,
+ "last_speech_s": 396.51,
+ "wpm_over_full_duration": 57.4,
+ "speech_active_s": 258.3,
+ "wpm_over_active_speech": 91.8,
+ "pauses_ge_3s": 14,
+ "longest_pauses": [
+  [
+   192.2,
+   36.3
+  ],
+  [
+   9.2,
+   11.9
+  ],
+  [
+   375.1,
+   11.0
+  ],
+  [
+   115.5,
+   8.6
+  ],
+  [
+   97.7,
+   7.7
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 0,
+ "words_first_10s": 2,
+ "words_first_30s": 14,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "160x90",
+ "storyboard_interval_s": 4.92,
+ "storyboard_frames": 84,
+ "frame_diff_mean": 38.7,
+ "frame_changes_gt25": 54,
+ "ns_id": "NS-003",
+ "view_count": 74902366,
+ "upload_date": "20190523",
+ "storyboard_frames_viewed": 84,
+ "story_start_s_approx": 21,
+ "sponsor": "Bukalapak (voucher card, app on screen, description T&C)",
+ "sponsor_segments_s_approx": [
+  [
+   5,
+   10
+  ],
+  [
+   329,
+   340
+  ],
+  [
+   384,
+   389
+  ]
+ ],
+ "distinct_shots_story_lower_bound": 55,
+ "avg_shot_len_story_s_upper_bound": 6.3,
+ "longest_wordless_segment_s": 36.3,
+ "shot_count_precision_note": "storyboard step ~4.9 s; many cuts not visible",
+ "analysis_completeness_pct": 35
+}
