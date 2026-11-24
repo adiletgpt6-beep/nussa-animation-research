@@ -1,0 +1,15 @@
+{
+  "channel_title": "NussaOfficial",
+  "channel_handle": "@NussaOfficialSeries",
+  "channel_id": "UCV2jNjJEtO0Hr3b1Es3xPJg",
+  "channel_follower_count": 12700000,
+  "collected_at_utc": "2026-11-24T21:04:05Z",
+  "method": "yt-dlp 2026.11.23 --flat-playlist on /videos, /shorts, /streams (helper session in environment with YouTube access); no media downloaded",
+  "tabs": {"videos": 262, "shorts": 585, "streams": 6},
+  "caveats": [
+    "view_count in flat mode is rounded as YouTube displays it (view_count_source=flat_rounded); exact counts for /videos are being collected with full metadata (-J) and will replace these values",
+    "upload_date is empty in flat mode",
+    "some titles were returned auto-translated to English by YouTube; original-language titles come from the -J pass with lang=id",
+    "shorts have no duration in flat mode"
+  ]
+}
