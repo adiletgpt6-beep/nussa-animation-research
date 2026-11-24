@@ -3,20 +3,19 @@
 
 Usage:
   analyze_episode.py --ns NS-001 --video-id XXXXXXXXXXX --out research/data/episodes \
-      [--age-recipient age1...] [--local-video file.mp4] [--local-subs file.vtt] [--asr]
+      [--review-dir /tmp/review] [--local-video file.mp4] [--local-subs file.vtt] [--asr]
 
 What it produces
   <out>/<NS>.metrics.json          PUBLIC: numbers only (shots, colour, motion, loudness,
                                    speech rate, pitch), no frames, no dialogue text.
-  <out>/../private/<NS>.private.tar.age
-                                   ENCRYPTED (age, recipient = research team key):
+  <review-dir>/<NS>/               LOCAL ONLY (never committed, not even encrypted):
                                    subtitles/ASR transcript + frame contact sheets +
-                                   motion strips used for the human-readable review.
+                                   motion strips used for the human review.
 Media files are downloaded only to a temporary work dir and deleted; they are never
 committed. Every metric records how it was obtained so reports can state what was
 actually measured.
 """
-import argparse, json, os, re, shutil, subprocess, sys, tarfile, tempfile, glob, math
+import argparse, json, os, re, shutil, subprocess, sys, tempfile, glob, math
 import numpy as np
 
 try:
@@ -337,20 +336,11 @@ def review_pack(path, vstats, cues, pdir):
     cap.release()
 
 
-def encrypt_dir(pdir, out, recipient):
-    tarp = out[:-4]
-    with tarfile.open(tarp, "w") as t:
-        t.add(pdir, arcname=os.path.basename(pdir))
-    r = run(["age", "-r", recipient, "-o", out, tarp])
-    os.remove(tarp)
-    return r.returncode == 0
-
-
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ns", required=True); ap.add_argument("--video-id", required=True)
-    ap.add_argument("--out", required=True); ap.add_argument("--age-recipient")
+    ap.add_argument("--out", required=True); ap.add_argument("--review-dir", help="local-only folder for transcript+frames (never commit)")
     ap.add_argument("--local-video"); ap.add_argument("--local-subs"); ap.add_argument("--asr", action="store_true")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
@@ -392,8 +382,9 @@ def main():
                         cues = asr["cues"]
         res["speech"] = speech_stats(cues, duration) if duration else None
         res["status"]["speech_source"] = ("subtitles:" + os.path.basename(pref[0])) if pref else ("asr" if asr else None)
-        if a.age_recipient:
-            pdir = os.path.join(work, a.ns)
+        if a.review_dir:
+            # LOCAL ONLY: transcript + contact sheets for human review. Never commit this folder.
+            pdir = os.path.join(a.review_dir, a.ns)
             os.makedirs(pdir, exist_ok=True)
             json.dump({"cues": cues, "asr": asr, "subtitle_files": res["status"]["subtitles"]},
                       open(os.path.join(pdir, "transcript.json"), "w"), ensure_ascii=False, indent=1)
@@ -401,9 +392,7 @@ def main():
                 shutil.copy(p, pdir)
             if video:
                 review_pack(video, res["video"], cues, pdir)
-            priv = os.path.join(os.path.dirname(a.out.rstrip("/")), "private")
-            os.makedirs(priv, exist_ok=True)
-            res["status"]["private_pack_encrypted"] = encrypt_dir(pdir, os.path.join(priv, f"{a.ns}.private.tar.age"), a.age_recipient)
+            res["status"]["review_pack_local"] = True
     finally:
         shutil.rmtree(work, ignore_errors=True)
     json.dump(res, open(os.path.join(a.out, f"{a.ns}.metrics.json"), "w"), ensure_ascii=False, indent=1)
