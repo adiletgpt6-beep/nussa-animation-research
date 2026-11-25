@@ -21,6 +21,7 @@
 | Каталог / топ-15 / лог отбора | [research/catalog.csv](research/catalog.csv), [research/top15.csv](research/top15.csv), [research/data/top15_selection_log.csv](research/data/top15_selection_log.csv) |
 | **Разбор видео VID-001** (13 серий 3-го сезона: движение, lip sync, звук, камера) | [research/vid001/VID001_ANALYSIS.md](research/vid001/VID001_ANALYSIS.md), сцены — [SCENES.md](research/vid001/SCENES.md) |
 | **Разработка сериала: 5 концепций, 10 названий, герои, 5 сюжетов пилота, стили, автоматизированный конвейер, смета, тестовая сцена** | [production/series/](production/series/README.md) |
+| **Тестовая сцена 01 (этап 0): 2D и 3D, код, QC** | [animation/test_scene_01/](animation/test_scene_01/README.md) |
 | **Практический план производства** (технологии, архитектура, сроки, бюджет) | [production/PRODUCTION_TECH_PLAN.md](production/PRODUCTION_TECH_PLAN.md) |
 | Технологии производства | [research/PRODUCTION_TECHNOLOGY.md](research/PRODUCTION_TECHNOLOGY.md) |
 | Религиозная проверка | [research/RELIGIOUS_REVIEW.md](research/RELIGIOUS_REVIEW.md) |
