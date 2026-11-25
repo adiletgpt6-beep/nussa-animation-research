@@ -1,0 +1,92 @@
+{
+ "method": "mean abs luma diff at 320px; dup<0.25, neighbours>=0.75",
+ "windows": [
+  {
+   "start_s": 100.0,
+   "dur_s": 60.0,
+   "frames": 1500,
+   "share_pairs_moving_ge_1": 0.224,
+   "duplicates_in_motion": 12,
+   "gap_histogram_top": [
+    [
+     25,
+     4
+    ],
+    [
+     225,
+     2
+    ],
+    [
+     50,
+     2
+    ],
+    [
+     75,
+     1
+    ],
+    [
+     300,
+     1
+    ]
+   ]
+  },
+  {
+   "start_s": 1800.0,
+   "dur_s": 60.0,
+   "frames": 1500,
+   "share_pairs_moving_ge_1": 0.411,
+   "duplicates_in_motion": 23,
+   "gap_histogram_top": [
+    [
+     25,
+     12
+    ],
+    [
+     50,
+     4
+    ],
+    [
+     175,
+     2
+    ],
+    [
+     75,
+     2
+    ],
+    [
+     100,
+     1
+    ]
+   ]
+  },
+  {
+   "start_s": 3300.0,
+   "dur_s": 60.0,
+   "frames": 1500,
+   "share_pairs_moving_ge_1": 0.362,
+   "duplicates_in_motion": 23,
+   "gap_histogram_top": [
+    [
+     25,
+     9
+    ],
+    [
+     50,
+     5
+    ],
+    [
+     75,
+     3
+    ],
+    [
+     150,
+     1
+    ],
+    [
+     109,
+     1
+    ]
+   ]
+  }
+ ]
+}

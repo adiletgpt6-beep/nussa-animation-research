@@ -8,7 +8,7 @@
 
 Мы ничего не копируем.
 
-**Статус (2026-11-25):** исследование 15 серий завершено, производство не начато. См. [STATUS.md](STATUS.md).
+**Статус (2026-11-25):** исследование 15 серий завершено; технический разбор видео VID-001 завершён; производство не начато. См. [STATUS.md](STATUS.md).
 
 | Раздел | Файл |
 |---|---|
@@ -19,6 +19,8 @@
 | **План разработки героев и первой серии** | [production/DEVELOPMENT_PLAN.md](production/DEVELOPMENT_PLAN.md) |
 | Карточки серий | [research/episodes/](research/episodes/) |
 | Каталог / топ-15 / лог отбора | [research/catalog.csv](research/catalog.csv), [research/top15.csv](research/top15.csv), [research/data/top15_selection_log.csv](research/data/top15_selection_log.csv) |
+| **Разбор видео VID-001** (13 серий 3-го сезона: движение, lip sync, звук, камера) | [research/vid001/VID001_ANALYSIS.md](research/vid001/VID001_ANALYSIS.md), сцены — [SCENES.md](research/vid001/SCENES.md) |
+| **Практический план производства** (технологии, архитектура, сроки, бюджет) | [production/PRODUCTION_TECH_PLAN.md](production/PRODUCTION_TECH_PLAN.md) |
 | Технологии производства | [research/PRODUCTION_TECHNOLOGY.md](research/PRODUCTION_TECHNOLOGY.md) |
 | Религиозная проверка | [research/RELIGIOUS_REVIEW.md](research/RELIGIOUS_REVIEW.md) |
 | Производственная библия и гайды | [production/](production/PROJECT_BIBLE.md) |
