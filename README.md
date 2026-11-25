@@ -13,7 +13,7 @@
 | Сравнительный анализ (методика и гипотезы) | [research/COMPARATIVE_ANALYSIS.md](research/COMPARATIVE_ANALYSIS.md) |
 | Технологии производства | [research/PRODUCTION_TECHNOLOGY.md](research/PRODUCTION_TECHNOLOGY.md) |
 | Религиозная проверка | [research/RELIGIOUS_REVIEW.md](research/RELIGIOUS_REVIEW.md) |
-| Каталог / топ-30 | [research/catalog.csv](research/catalog.csv), [research/top30.csv](research/top30.csv) |
+| Каталог / топ-15 | [research/catalog.csv](research/catalog.csv), [research/top15.csv](research/top15.csv) |
 | Конвейер анализа | [research/pipeline/](research/pipeline/README.md) |
 | Производственный фундамент | [production/](production/PROJECT_BIBLE.md) |
 

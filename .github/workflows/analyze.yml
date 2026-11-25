@@ -1,5 +1,5 @@
 name: research-analyze
-# Stage 2: measured analysis of the episodes listed in research/top30.csv.
+# Stage 2: measured analysis of the episodes listed in research/top15.csv.
 # Media is downloaded to the runner only and deleted; it is never committed.
 # Output: numeric metrics only. No transcripts, frames or media leave the runner
 # (not even encrypted) - project rule.
@@ -20,7 +20,7 @@ jobs:
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import csv, json
-          rows = list(csv.DictReader(open("research/top30.csv")))
+          rows = list(csv.DictReader(open("research/top15.csv")))
           print("ids=" + json.dumps([{"ns": r["ns_id"], "vid": r["video_id"]} for r in rows]))
           PY
   episode:

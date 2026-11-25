@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Select the 30 most-viewed unique full episodes from research/catalog.csv.
+"""Select the TOP_N (default 15) most-viewed unique full episodes from research/catalog.csv.
 
 Rules (from the research brief):
   * only the channel's /videos tab (Shorts and live streams excluded);
   * duration 120..900 s  (shorter = shorts/teasers/clips, longer = compilations);
   * titles matching trailer / teaser / compilation / song / ad / BTS keywords excluded;
   * re-uploads and language dubs collapsed by normalised title (highest views kept).
-Every exclusion is written with its reason to research/data/top30_selection_log.csv so
+Every exclusion is written with its reason to research/data/top15_selection_log.csv so
 the selection can be audited and corrected by a human (override file supported).
 """
 import csv, re, pathlib, unicodedata, json
@@ -19,7 +19,8 @@ EXCLUDE = {
     "promo/ad": r"\biklan\b|\bpromo\b|\bsponsor|\bgiveaway\b|\bmerch|\bpre-?order\b|\btiket\b|\bnow showing\b|\bdi bioskop\b",
     "making-of/other": r"behind the scenes|\bbts\b|making of|\bvlog\b|\bq&a\b|\blive\b|\bpodcast\b|\bunboxing\b|\breaction\b",
 }
-OVERRIDES = ROOT / "research/data/top30_overrides.json"  # {"exclude": {id: reason}, "include": [id]}
+TOP_N = 15  # study scope reduced from 30 to 15 by the project owner (2026-11-25)
+OVERRIDES = ROOT / "research/data/top15_overrides.json"  # {"exclude": {id: reason}, "include": [id]}
 
 
 def norm(t):
@@ -58,10 +59,10 @@ def main():
         log.append({**r, "excluded_reason": reason or ""})
         if not reason:
             keep.append(r)
-    with open(ROOT / "research/data/top30_selection_log.csv", "w", newline="") as f:
+    with open(ROOT / "research/data/top15_selection_log.csv", "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(log[0].keys())); w.writeheader(); w.writerows(log)
-    top = keep[:30]
-    with open(ROOT / "research/top30.csv", "w", newline="") as f:
+    top = keep[:TOP_N]
+    with open(ROOT / "research/top15.csv", "w", newline="") as f:
         fields = ["ns_id", "rank", "video_id", "title", "url", "duration_s", "view_count", "upload_date", "collected_at_utc", "analysis_status"]
         w = csv.DictWriter(f, fieldnames=fields); w.writeheader()
         for i, r in enumerate(top, 1):
