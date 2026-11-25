@@ -2,7 +2,7 @@
 кивки на ударениях, реакции слушателя, вторичное движение пружинами, squash & stretch)."""
 import math
 import numpy as np
-from motion import Track, Spring, blink_times, blink_value, viseme_events, mouth_weights, gait_track, FPS
+from motion import Track, Spring, harden, blink_times, blink_value, viseme_events, mouth_weights, gait_track, FPS
 from face import mouth_vec, MOUTH
 
 DEFAULTS = dict(x=0.0, y=0.0, u=150.0, face=1, crouch=0.0, lean=0.0, hip_x=0.0, bob=0.0, jump=0.0,
@@ -12,7 +12,7 @@ DEFAULTS = dict(x=0.0, y=0.0, u=150.0, face=1, crouch=0.0, lean=0.0, hip_x=0.0, 
                 brow_up=0.0, brow_inner=0.0, brow_asym=0.0, squint=0.0, wide=0.0, lid=0.0,
                 smile=0.25, frown=0.0, look_x=0.3, look_y=0.0, blush=0.0, sx=1.0, sy=1.0,
                 walk=1.0, breath=1.0, open_mouth=0.0, tears=0.0, visible=1.0, z=0.0)
-DISCRETE = ("hand_n", "hand_f", "mouth_shape", "hold_n", "hold_f", "pose")
+DISCRETE = ("hand_n", "hand_f", "mouth_shape", "hold_n", "hold_f", "pose", "face", "visible")
 
 
 class Actor:
@@ -20,9 +20,10 @@ class Actor:
         self.name = name
         self.ch = character
         self.seed = seed
-        self.tr = {k: Track(v) for k, v in DEFAULTS.items()}
+        self.tr = {k: Track(v, step=(k in DISCRETE)) for k, v in DEFAULTS.items()}
         for k in DISCRETE:
-            self.tr[k] = Track(None)
+            if k not in self.tr:
+                self.tr[k] = Track(None, step=True)
         self.tr["hand_n"].default = "relax"; self.tr["hand_f"].default = "relax"
         self.lines = []       # (t0, alignment)
         self.forced_blinks = []
@@ -48,6 +49,8 @@ class Actor:
 
     # ---- предрасчёт походки и моргания
     def prepare(self, n_frames):
+        for tr in self.tr.values():
+            harden(tr)
         xs = [self.tr["x"](f / FPS) for f in range(n_frames)]
         self._gait = gait_track(xs, step_px=(self.extra.get("step", 60), self.extra.get("run_step", 105)))
         self._blinks = blink_times(n_frames / FPS, self.seed, self.forced_blinks)

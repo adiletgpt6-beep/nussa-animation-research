@@ -24,9 +24,10 @@ def ease(x, kind="inout"):
 class Track:
     """Ключи (t, value, ease). Значение между ключами — по кривой следующего ключа."""
 
-    def __init__(self, default=0.0):
+    def __init__(self, default=0.0, step=False):
         self.k = []
         self.default = default
+        self.step = step  # дискретная дорожка: значение меняется ровно в момент ключа
 
     def key(self, t, v, e="inout"):
         self.k.append((t, v, e))
@@ -40,8 +41,24 @@ class Track:
         k = self.k
         if not k:
             return self.default
+        if self.step:
+            v = self.default
+            for tk, vk, _ in k:
+                if tk <= t:
+                    v = vk
+                else:
+                    break
+            return v
         if t <= k[0][0]:
-            return k[0][1]
+            t0, v0 = k[0][0], k[0][1]
+            if not isinstance(v0, (int, float)) or isinstance(self.default, str) or self.default is None:
+                return v0
+            if t0 <= 0.4 or t >= t0:
+                return v0 if t0 <= 0.4 else (v0 if t >= t0 else self.default)
+            if t < t0 - 0.4:
+                return self.default
+            s_ = ease((t - (t0 - 0.4)) / 0.4)
+            return self.default + (v0 - self.default) * s_
         for (t0, v0, _), (t1, v1, e) in zip(k, k[1:]):
             if t0 <= t <= t1:
                 if t1 - t0 < 1e-6:
@@ -51,6 +68,20 @@ class Track:
                     return v0 + (v1 - v0) * s
                 return v1 if s > 0.5 else v0
         return k[-1][1]
+
+
+def harden(track, maxgap=4.0, win=1.0):
+    """Убирает «дрейф»: если между ключами больше maxgap секунд, значение удерживается
+    и меняется только в последние win секунд перед следующим ключом."""
+    if track.step or len(track.k) < 2:
+        return
+    add = []
+    for (t0, v0, _), (t1, v1, e) in zip(track.k, track.k[1:]):
+        if t1 - t0 > maxgap and isinstance(v0, (int, float)) and v0 != v1:
+            add.append((t1 - win, v0, "linear"))
+    for a in add:
+        track.k.append(a)
+    track.k.sort(key=lambda a: a[0])
 
 
 class Spring:
