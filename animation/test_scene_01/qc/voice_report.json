@@ -1,0 +1,32 @@
+[
+ {
+  "id": "L1",
+  "who": "babushka",
+  "dur_s": 2.9,
+  "f0_median_hz": 150.9
+ },
+ {
+  "id": "L2",
+  "who": "amir",
+  "dur_s": 1.74,
+  "f0_median_hz": 230.1
+ },
+ {
+  "id": "L3",
+  "who": "amir",
+  "dur_s": 1.7,
+  "f0_median_hz": 207.4
+ },
+ {
+  "id": "L4",
+  "who": "amir",
+  "dur_s": 2.12,
+  "f0_median_hz": 222.2
+ },
+ {
+  "id": "L5",
+  "who": "babushka",
+  "dur_s": 3.01,
+  "f0_median_hz": 164.1
+ }
+]

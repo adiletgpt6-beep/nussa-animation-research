@@ -11,3 +11,7 @@
 __pycache__/
 work/
 research/data/private/
+
+# animation build outputs
+animation/**/toon_matcap.png
+animation/**/frames*/

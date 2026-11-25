@@ -1,0 +1,75 @@
+{
+ "file": "test_scene_01_2d.mp4",
+ "format": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30.0,
+  "duration_s": 19.3,
+  "video_codec": "h264",
+  "pix_fmt": "yuv420p",
+  "audio_codec": "aac",
+  "audio_rate": 48000,
+  "audio_channels": 2
+ },
+ "loudness": {
+  "integrated_lufs": -15.9,
+  "true_peak_dbfs": -1.0
+ },
+ "frames": {
+  "frames": 579,
+  "longest_frozen_run_frames": 0,
+  "black_frames": 0,
+  "share_pairs_with_motion": 0.822
+ },
+ "lipsync_blinks": {
+  "amir": {
+   "mbp_phonemes": 6,
+   "mbp_with_lips_closed_pm1frame": 6,
+   "blinks": 11,
+   "blink_interval_s_min": 0.98,
+   "blink_interval_s_max": 2.26
+  },
+  "babushka": {
+   "mbp_phonemes": 9,
+   "mbp_with_lips_closed_pm1frame": 9,
+   "blinks": 8,
+   "blink_interval_s_min": 0.82,
+   "blink_interval_s_max": 3.61
+  }
+ },
+ "feet": {
+  "amir": {
+   "max_planted_slide_m": 0.0,
+   "steps": 8
+  },
+  "babushka": {
+   "max_planted_slide_m": 0.0,
+   "steps": 5
+  }
+ },
+ "music": {
+  "windows": 6,
+  "max_music_prob": 0.426,
+  "share_windows_music_ge_0_5": 0.0,
+  "max_speech_prob": 0.62
+ },
+ "speech_ru": {
+  "asr_text": "Амир, внучик, помоги, пожалуйста. Бабул, у меня же мач. Ладно, давай. Олга, ты что, кипячек купила? Мука, внучик, будем печь хлеб.",
+  "script_words": 21,
+  "wer": 0.286
+ },
+ "checks": {
+  "resolution_1920x1080": true,
+  "fps_30": true,
+  "duration_15_20s": true,
+  "loudness_-14_-16_LUFS": true,
+  "true_peak_le_-1dBTP": true,
+  "no_music_classifier": true,
+  "no_frozen_over_2s": true,
+  "no_black_frames": true,
+  "lips_close_on_mbp": true,
+  "no_foot_sliding": true,
+  "speech_intelligible_wer_le_0_35": true
+ },
+ "passed": true
+}
