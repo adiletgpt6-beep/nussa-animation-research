@@ -1,0 +1,51 @@
+{
+  "fps": 30,
+  "duration_s": 19.3,
+  "lines": [
+    {
+      "id": "L1",
+      "who": "babushka",
+      "start": 3.6,
+      "text": "Амир, внучек, помоги, пожалуйста."
+    },
+    {
+      "id": "L2",
+      "who": "amir",
+      "start": 8.0,
+      "text": "Бабуль, у меня же матч..."
+    },
+    {
+      "id": "L3",
+      "who": "amir",
+      "start": 10.4,
+      "text": "Ладно, давай!"
+    },
+    {
+      "id": "L4",
+      "who": "amir",
+      "start": 13.0,
+      "text": "Ого! Ты что, кирпичи купила?"
+    },
+    {
+      "id": "L5",
+      "who": "babushka",
+      "start": 15.4,
+      "text": "Мука, внучек. Будем печь хлеб."
+    }
+  ],
+  "voices": {
+    "amir": {
+      "model": "ru_RU-irina-medium",
+      "length_scale": 0.9,
+      "pitch_semitones": 5.0,
+      "note": "временный голос: женский голос Piper, поднят по высоте — имитация мальчика"
+    },
+    "babushka": {
+      "model": "ru_RU-irina-medium",
+      "length_scale": 1.0,
+      "pitch_semitones": -2.0,
+      "tremolo": 0.06,
+      "note": "временный голос: тот же голос, ниже и медленнее, лёгкое дрожание"
+    }
+  }
+}
