@@ -1,6 +1,6 @@
 # START HERE
 
-1. Прочитайте [research/FINAL_REPORT.md](research/FINAL_REPORT.md): что сделано, что нет и почему.
-2. Снимите блокеры B1 и B2 (раздел 2 отчёта). Без них анализ серий был невозможен (сняты 25.11.2026).
-3. Для агента или исследователя, продолжающего работу: [HANDOFF.md](HANDOFF.md) и [CLAUDE.md](CLAUDE.md).
-4. После завершения исследования и утверждения заказчиком начинается [production/PILOT_PLAN.md](production/PILOT_PLAN.md).
+1. [research/FINAL_REPORT.md](research/FINAL_REPORT.md) — что сделано, в каком объёме и с какими ограничениями.
+2. [production/RECOMMENDATIONS.md](production/RECOMMENDATIONS.md) — выводы для нашего сериала. Каждый пункт помечен: подтверждено исследованием или производственная рекомендация.
+3. [production/DEVELOPMENT_PLAN.md](production/DEVELOPMENT_PLAN.md) — следующий этап: оригинальные герои и первая 2D-серия, с точками утверждения.
+4. Агентам и исполнителям: [CLAUDE.md](CLAUDE.md) и [HANDOFF.md](HANDOFF.md).
