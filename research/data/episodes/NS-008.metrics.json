@@ -1,0 +1,17 @@
+{
+ "ns_id": "NS-008",
+ "video_id": "Cxdx5vibsTg",
+ "status": {
+  "metadata_verified": false,
+  "subtitles": [],
+  "video_downloaded": false,
+  "speech_source": null
+ },
+ "errors": {
+  "metadata": "ERROR: [youtube] Cxdx5vibsTg: Video unavailable. This content isn’t available.\n",
+  "video": "ERROR: [youtube] Cxdx5vibsTg: Video unavailable. This content isn’t available.\n"
+ },
+ "metadata": null,
+ "duration_s": null,
+ "speech": null
+}

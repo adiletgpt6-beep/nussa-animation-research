@@ -1,0 +1,17 @@
+{
+ "ns_id": "NS-001",
+ "video_id": "rA1UA6CvyM4",
+ "status": {
+  "metadata_verified": false,
+  "subtitles": [],
+  "video_downloaded": false,
+  "speech_source": null
+ },
+ "errors": {
+  "metadata": "ERROR: [youtube] rA1UA6CvyM4: Video unavailable. This content isn’t available.\n",
+  "video": "ERROR: [youtube] rA1UA6CvyM4: Video unavailable. This content isn’t available.\n"
+ },
+ "metadata": null,
+ "duration_s": null,
+ "speech": null
+}

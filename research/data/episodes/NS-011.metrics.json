@@ -1,0 +1,17 @@
+{
+ "ns_id": "NS-011",
+ "video_id": "OBS_QZeEImY",
+ "status": {
+  "metadata_verified": false,
+  "subtitles": [],
+  "video_downloaded": false,
+  "speech_source": null
+ },
+ "errors": {
+  "metadata": "ERROR: [youtube] OBS_QZeEImY: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n",
+  "video": "ERROR: [youtube] OBS_QZeEImY: Sign in to confirm you’re not a bot. This helps protect our community. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extractors#exporting-youtube-cookies  for tips on effectively exporting YouTube cookies\n"
+ },
+ "metadata": null,
+ "duration_s": null,
+ "speech": null
+}
