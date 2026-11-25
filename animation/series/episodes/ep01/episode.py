@@ -36,7 +36,7 @@ class Episode:
         # камера и мир
         self.cam = {k: Track(v) for k, v in dict(cx=1300.0, cy=700.0, zoom=0.82).items()}
         self.env = {k: Track(v) for k, v in dict(door=0.0, stage=0.0, wind=0.0, rain=0.0, flash=0.0, fade=0.0, water=0.0,
-                                                  soil_hole=0.0, sparkle=0.0, pot_x=POT[0], tint=0.0, title=0.0, endcard=0.0, small_pot=0.0).items()}
+                                                  soil_hole=0.0, sparkle=0.0, pot_x=POT[0], tint=0.0, title=0.0, endcard=0.0, small_pot=0.0, can_floor=0.0, can_x=1150.0).items()}
         self.env["bg"] = Track("morning", step=True); self.env["bg2"] = Track("morning", step=True); self.env["bgmix"] = Track(0.0)
         self.hog = {k: Track(v, step=k in ("face", "vis")) for k, v in dict(x=1500.0, y=1000.0, face=-1, sniff=0.0, ball=0.0, vis=0.0, wet=0.0, sy=1.0).items()}
         self.pigeon = {k: Track(v, step=k in ("face", "vis")) for k, v in dict(x=-200.0, y=950.0, flap=0.0, peck=0.0, vis=0.0, face=1).items()}
@@ -106,6 +106,8 @@ class Episode:
         roof.draw_lights(c, P, t)
         roof.kiosk(c, 420, 880, P, self.env["door"](t))
         roof.bench(c, BENCH_X, 905, P)
+        if self.env["can_floor"](t) > 0.5:
+            props.watering_can(1.0)(c, (self.env["can_x"](t), 990 - 97), math.pi / 2, 168)
         if self.env["small_pot"](t) > 0.5:
             roof.clay_pot(c, 830, 990, 0.75, P)
         wind = self.env["wind"](t)
@@ -162,7 +164,7 @@ class Episode:
         if self.env["title"](t) > 0.01:
             self.title_card(c, self.env["title"](t))
         if self.env["endcard"](t) > 0.01:
-            self.end_card(c, self.env["endcard"](t))
+            self.end_card(c, self.env["endcard"](t), t)
         fd = self.env["fade"](t)
         if fd > 0.001:
             c.drawRect(skia.Rect(0, 0, W, H), paint((10, 8, 16), fd))
@@ -196,10 +198,28 @@ class Episode:
         self.text(c, "Сад на крыше", W / 2, y, 118, (255, 214, 80), a, outline=(120, 60, 40))
         self.text(c, "Семечко, которое не спешило", W / 2, y + 110, 58, (255, 255, 255), a, outline=(70, 50, 60))
 
-    def end_card(self, c, k):
-        c.drawRect(skia.Rect(0, 0, W, H), paint((255, 246, 226), min(1, k)))
-        self.text(c, "Сад на крыше", W / 2, 470, 120, (240, 170, 40), min(1, k), outline=(120, 60, 40))
-        self.text(c, "Терпение — это ждать и заботиться", W / 2, 590, 50, (90, 70, 80), min(1, k), bold=False)
+    def end_card(self, c, k, t=0.0):
+        a = min(1, k)
+        c.drawRect(skia.Rect(0, 0, W, H), paint((255, 246, 226), a))
+        P = roof.PRESETS["day"]
+        c.save()
+        c.translate(0, (1 - a) * 80)
+        props.sunflower_pot(c, 1500, 1010, 6.0, P, roof.lit, wind=0.15, t=t, scale=1.1, sparkle=0.6 * a)
+        hedgehog.draw(c, 1720, 1015, 110, face=-1, sniff=math.sin(t * 8) * 0.6, blink=1.0 if (t % 3.0) < 0.15 else 0.0)
+        c.restore()
+        rng = np.random.default_rng(4)
+        for i in range(14):   # падающие лепестки
+            x0, sp, ph = rng.uniform(0, W), rng.uniform(40, 90), rng.uniform(0, 30)
+            y = (ph * 40 + t * sp) % (H + 100) - 50
+            x = x0 + math.sin(t * 1.5 + ph) * 40
+            c.save(); c.translate(x, y); c.rotate(t * 60 + ph * 20)
+            c.drawOval(skia.Rect(-14, -6, 14, 6), paint((255, 200, 60), 0.85 * a))
+            c.restore()
+        sc = 1 + 0.02 * math.sin(t * 2.2)
+        c.save(); c.translate(W / 2 - 250, 470); c.scale(sc, sc)
+        self.text(c, "Сад на крыше", 0, 0, 120, (240, 170, 40), a, outline=(120, 60, 40))
+        c.restore()
+        self.text(c, "Терпение — это ждать и заботиться", W / 2 - 250, 590, 50, (90, 70, 80), a, bold=False)
 
     # ---- эффекты
     def fx_splash(self, c, t, t0, t1, prm):
@@ -280,6 +300,10 @@ def scene_1(E):
     for act, d in ((A, -1), (B, -1)):
         act.k(td + 0.3, head_yaw=0.35).k(td + 0.6, head_yaw=-0.3, look_x=-0.6)
     A.k(td + 0.6, face=1, head_yaw=-0.55).k(td + 1.1, face=-1, head_yaw=0.45, look_x=0.4)
+    A.k(td + 0.2, crouch=0.0).k(td + 0.45, crouch=0.18, e="out").k(td + 0.5, hold_n=None, hand_n="relax").k(td + 0.75, crouch=0.0)
+    E.env["can_floor"].key(td + 0.49, 0.0, "linear").key(td + 0.5, 1.0, "linear")
+    E.env["can_x"].key(0, 1150, "linear")
+    E.sfx_at(td + 0.5, "land", 0.4, 0.0)
     t = E.line("s1_04", td + 1.6)
     N.k(t - 2.0, arm_n=0.6, elbow_n=0.9, hand_n="pinch", hold_n=props.packet(), smile=0.6)
     A.k(td + 2.2, x=1100).k(td + 3.4, x=1060, e="inout")
@@ -370,6 +394,7 @@ def scene_2(E, t0):
     # переливание: огромная лейка
     tw = t + 0.9
     A.k(tw, hold_n=props.watering_can(1.0, tilt=0.0), hand_n="grip", arm_n=0.4, elbow_n=0.6, x=1150)
+    E.env["can_floor"].key(tw - 0.01, 1.0, "linear").key(tw, 0.0, "linear")
     A.k(tw + 0.5, arm_n=1.25, elbow_n=0.4, lean=0.12, e="out").k(tw + 0.5, hold_n=props.watering_can(1.0, tilt=0.6))
     E.fx.append((tw + 0.6, tw + 3.6, "stream", dict(actor=A, tx=1300, ty=890, dx=1.15, dy=-0.3)))
     E.sfx_at(tw + 0.6, "pour", 1.0, 0.1)
@@ -392,6 +417,8 @@ def scene_2(E, t0):
     E.cut(t - 4.1, 1700, 620, 1.55)
     t = E.line("s2_03", t + 0.3)
     A.k(t - 2.2, hold_n=None, frown=0.6, smile=0.0, brow_inner=0.6, arm_n=0.9, elbow_n=2.2, arm_f=0.9, elbow_f=2.2, head_tilt=-0.15, hand_n="fist")  # руки скрещены
+    E.env["can_floor"].key(t - 2.21, 0.0, "linear").key(t - 2.2, 1.0, "linear")
+    E.env["can_x"].key(t - 2.21, 1150, "linear").key(t - 2.2, 1040, "linear")
     A.k(t - 1.0, hip_x=-0.04, head_tilt=-0.2)
     E.cut(t - 2.3, 1200, 640, 1.8)
     # тащит горшок на солнце
@@ -534,6 +561,8 @@ def scene_3(E, t0):
     t = E.line("s3_12", tp + 4.0)
     A.k(t - 2.0, hold_n=None, hand_n="open", hy_n=-0.45, smile=0.5, squint=0.3).k(t, arm_ik_n=0.0)
     E.cut(t - 2.3, 1110, 760, 2.1)
+    N.k(t + 0.4, lean=0.08, crouch=0.0, arm_n=0.12, elbow_n=0.35, hand_n="relax")
+    A.k(t + 0.6, crouch=0.0, lean=0.0)
     return t + 1.2
 
 
