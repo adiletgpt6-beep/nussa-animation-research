@@ -2,7 +2,7 @@
 """Audio analysis of a locally available video (free, local models only; no paid APIs).
 
 Usage:
-  audio_analysis.py VIDEO SEGMENTS_JSON OUT_DIR [--skip-asr] [--asr-model small]
+  audio_analysis.py VIDEO SEGMENTS_JSON OUT_DIR [--skip-asr] [--asr-model small] [--reuse]
 
 Writes to OUT_DIR (keep OUT_DIR outside git; only the *_summary.json is meant to be committed):
   audio_tags.csv        per 2.5 s window: speech / music / laughter / SFX-like probabilities
@@ -88,6 +88,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("video"); ap.add_argument("segments"); ap.add_argument("out_dir")
     ap.add_argument("--skip-asr", action="store_true"); ap.add_argument("--asr-model", default="small")
+    ap.add_argument("--reuse", action="store_true", help="reuse existing audio_tags.csv / asr_words.json in OUT_DIR")
     a = ap.parse_args()
     os.makedirs(a.out_dir, exist_ok=True)
     wavp = os.path.join(a.out_dir, "audio16k.wav")
@@ -95,9 +96,20 @@ def main():
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-ac", "1", "-ar", "16000", wavp], check=True)
     wav, sr = sf.read(wavp)
     segs = json.load(open(a.segments))
-    tags = tag_audio(wav, sr, os.path.join(a.out_dir, "audio_tags.csv"))
+    tags_csv = os.path.join(a.out_dir, "audio_tags.csv")
+    asr_json = os.path.join(a.out_dir, "asr_words.json")
+    if a.reuse and os.path.exists(tags_csv):
+        import csv
+        tags = [{k: (v if k == "top" else float(v)) for k, v in r.items()} for r in csv.DictReader(open(tags_csv))]
+    else:
+        tags = tag_audio(wav, sr, tags_csv)
     print("tagging done", flush=True)
-    words = [] if a.skip_asr else run_asr(wavp, a.asr_model, os.path.join(a.out_dir, "asr_words.json"))
+    if a.skip_asr:
+        words = []
+    elif a.reuse and os.path.exists(asr_json):
+        words = json.load(open(asr_json))["words"]
+    else:
+        words = run_asr(wavp, a.asr_model, asr_json)
     print("asr done", len(words), flush=True)
     summary = {"method": {"tagger": "MIT/ast-finetuned-audioset-10-10-0.4593 (5 s windows, 2.5 s hop, sigmoid probs)",
                           "asr": None if a.skip_asr else f"faster-whisper {a.asr_model}, language=id, VAD, word timestamps",
@@ -122,7 +134,8 @@ def main():
             "asr_pauses_ge_2s": sum(g >= 2 for g in gaps) if words else None,
             "first_word_s_from_segment_start": round(ww[0]["s"] - st, 2) if ww else None,
         })
-    json.dump(summary, open(os.path.join(a.out_dir, "audio_summary.json"), "w"), ensure_ascii=False, indent=1)
+    json.dump(summary, open(os.path.join(a.out_dir, "audio_summary.json"), "w"), ensure_ascii=False, indent=1,
+              default=lambda o: o.item() if hasattr(o, "item") else str(o))  # numpy scalars
     print("summary written", flush=True)
 
 

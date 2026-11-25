@@ -1,0 +1,282 @@
+{
+ "method": {
+  "tagger": "MIT/ast-finetuned-audioset-10-10-0.4593 (5 s windows, 2.5 s hop, sigmoid probs)",
+  "asr": "faster-whisper small, language=id, VAD, word timestamps",
+  "loudness": "ffmpeg ebur128"
+ },
+ "segments": [
+  {
+   "id": "E01",
+   "title": "Di Rumah Aja",
+   "duration_s": 343.5,
+   "loudness": {
+    "integrated_lufs": -20.0,
+    "lra_lu": 7.3,
+    "true_peak_dbfs": -0.0
+   },
+   "windows": 135,
+   "share_windows_music_ge_0_3": 0.867,
+   "share_windows_music_ge_0_5": 0.778,
+   "share_windows_speech_ge_0_5": 0.77,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.0,
+   "asr_words": 459,
+   "asr_wpm_full": 80.2,
+   "asr_speech_coverage_pct": 63.6,
+   "asr_pauses_ge_2s": 9,
+   "first_word_s_from_segment_start": 4.21
+  },
+  {
+   "id": "E02",
+   "title": "Mimpi",
+   "duration_s": 312.9,
+   "loudness": {
+    "integrated_lufs": -20.9,
+    "lra_lu": 12.0,
+    "true_peak_dbfs": -0.3
+   },
+   "windows": 123,
+   "share_windows_music_ge_0_3": 0.789,
+   "share_windows_music_ge_0_5": 0.61,
+   "share_windows_speech_ge_0_5": 0.569,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.008,
+   "asr_words": 231,
+   "asr_wpm_full": 44.3,
+   "asr_speech_coverage_pct": 36.0,
+   "asr_pauses_ge_2s": 15,
+   "first_word_s_from_segment_start": 67.25
+  },
+  {
+   "id": "E03",
+   "title": "Jaga Amanah — Part 1",
+   "duration_s": 305.2,
+   "loudness": {
+    "integrated_lufs": -16.8,
+    "lra_lu": 16.1,
+    "true_peak_dbfs": 0.6
+   },
+   "windows": 120,
+   "share_windows_music_ge_0_3": 0.942,
+   "share_windows_music_ge_0_5": 0.817,
+   "share_windows_speech_ge_0_5": 0.65,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.017,
+   "asr_words": 207,
+   "asr_wpm_full": 40.7,
+   "asr_speech_coverage_pct": 27.9,
+   "asr_pauses_ge_2s": 18,
+   "first_word_s_from_segment_start": 39.52
+  },
+  {
+   "id": "E04",
+   "title": "Jaga Amanah — Part 2",
+   "duration_s": 322.1,
+   "loudness": {
+    "integrated_lufs": -23.8,
+    "lra_lu": 12.6,
+    "true_peak_dbfs": -4.0
+   },
+   "windows": 127,
+   "share_windows_music_ge_0_3": 0.882,
+   "share_windows_music_ge_0_5": 0.772,
+   "share_windows_speech_ge_0_5": 0.677,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.016,
+   "asr_words": 327,
+   "asr_wpm_full": 60.9,
+   "asr_speech_coverage_pct": 46.5,
+   "asr_pauses_ge_2s": 12,
+   "first_word_s_from_segment_start": 58.9
+  },
+  {
+   "id": "E05",
+   "title": "Belajar Jualan",
+   "duration_s": 353.0,
+   "loudness": {
+    "integrated_lufs": -15.1,
+    "lra_lu": 13.8,
+    "true_peak_dbfs": 0.5
+   },
+   "windows": 139,
+   "share_windows_music_ge_0_3": 0.928,
+   "share_windows_music_ge_0_5": 0.892,
+   "share_windows_speech_ge_0_5": 0.806,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.0,
+   "asr_words": 498,
+   "asr_wpm_full": 84.6,
+   "asr_speech_coverage_pct": 57.6,
+   "asr_pauses_ge_2s": 7,
+   "first_word_s_from_segment_start": 7.89
+  },
+  {
+   "id": "E06",
+   "title": "Chef Rarra",
+   "duration_s": 334.2,
+   "loudness": {
+    "integrated_lufs": -15.5,
+    "lra_lu": 11.9,
+    "true_peak_dbfs": 0.3
+   },
+   "windows": 132,
+   "share_windows_music_ge_0_3": 0.894,
+   "share_windows_music_ge_0_5": 0.818,
+   "share_windows_speech_ge_0_5": 0.902,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.03,
+   "asr_words": 372,
+   "asr_wpm_full": 66.8,
+   "asr_speech_coverage_pct": 47.9,
+   "asr_pauses_ge_2s": 19,
+   "first_word_s_from_segment_start": 8.09
+  },
+  {
+   "id": "E07",
+   "title": "Adab Menguap",
+   "duration_s": 240.4,
+   "loudness": {
+    "integrated_lufs": -15.3,
+    "lra_lu": 10.8,
+    "true_peak_dbfs": -0.1
+   },
+   "windows": 94,
+   "share_windows_music_ge_0_3": 0.021,
+   "share_windows_music_ge_0_5": 0.021,
+   "share_windows_speech_ge_0_5": 0.734,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.021,
+   "asr_words": 276,
+   "asr_wpm_full": 68.9,
+   "asr_speech_coverage_pct": 52.3,
+   "asr_pauses_ge_2s": 7,
+   "first_word_s_from_segment_start": 7.36
+  },
+  {
+   "id": "E08",
+   "title": "Stop… Jangan Berebut",
+   "duration_s": 329.1,
+   "loudness": {
+    "integrated_lufs": -17.0,
+    "lra_lu": 15.6,
+    "true_peak_dbfs": -0.1
+   },
+   "windows": 130,
+   "share_windows_music_ge_0_3": 0.023,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.846,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.046,
+   "asr_words": 401,
+   "asr_wpm_full": 73.1,
+   "asr_speech_coverage_pct": 60.1,
+   "asr_pauses_ge_2s": 12,
+   "first_word_s_from_segment_start": 10.37
+  },
+  {
+   "id": "E09",
+   "title": "Tolong dan Terima Kasih",
+   "duration_s": 299.5,
+   "loudness": {
+    "integrated_lufs": -17.3,
+    "lra_lu": 12.3,
+    "true_peak_dbfs": -0.3
+   },
+   "windows": 118,
+   "share_windows_music_ge_0_3": 0.0,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.831,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.025,
+   "asr_words": 352,
+   "asr_wpm_full": 70.5,
+   "asr_speech_coverage_pct": 57.8,
+   "asr_pauses_ge_2s": 16,
+   "first_word_s_from_segment_start": 5.0
+  },
+  {
+   "id": "E10",
+   "title": "Antta Hilang",
+   "duration_s": 342.0,
+   "loudness": {
+    "integrated_lufs": -18.0,
+    "lra_lu": 17.8,
+    "true_peak_dbfs": 1.2
+   },
+   "windows": 135,
+   "share_windows_music_ge_0_3": 0.007,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.689,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.207,
+   "asr_words": 224,
+   "asr_wpm_full": 39.3,
+   "asr_speech_coverage_pct": 32.6,
+   "asr_pauses_ge_2s": 11,
+   "first_word_s_from_segment_start": 16.28
+  },
+  {
+   "id": "E11",
+   "title": "Kak Nussa… Jangan Tinggalin Rarra",
+   "duration_s": 279.2,
+   "loudness": {
+    "integrated_lufs": -15.7,
+    "lra_lu": 15.5,
+    "true_peak_dbfs": 0.2
+   },
+   "windows": 110,
+   "share_windows_music_ge_0_3": 0.0,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.927,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.045,
+   "asr_words": 299,
+   "asr_wpm_full": 64.2,
+   "asr_speech_coverage_pct": 57.8,
+   "asr_pauses_ge_2s": 15,
+   "first_word_s_from_segment_start": 8.73
+  },
+  {
+   "id": "E12",
+   "title": "Qodarullah Wamasya'a Fa'ala",
+   "duration_s": 302.2,
+   "loudness": {
+    "integrated_lufs": -17.5,
+    "lra_lu": 10.1,
+    "true_peak_dbfs": -0.2
+   },
+   "windows": 119,
+   "share_windows_music_ge_0_3": 0.0,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.941,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.034,
+   "asr_words": 418,
+   "asr_wpm_full": 83.0,
+   "asr_speech_coverage_pct": 72.7,
+   "asr_pauses_ge_2s": 5,
+   "first_word_s_from_segment_start": 7.43
+  },
+  {
+   "id": "E13",
+   "title": "Mengenal Ka'bah",
+   "duration_s": 320.5,
+   "loudness": {
+    "integrated_lufs": -19.7,
+    "lra_lu": 13.1,
+    "true_peak_dbfs": -0.3
+   },
+   "windows": 126,
+   "share_windows_music_ge_0_3": 0.0,
+   "share_windows_music_ge_0_5": 0.0,
+   "share_windows_speech_ge_0_5": 0.913,
+   "share_windows_laughter_ge_0_3": 0.0,
+   "share_windows_sfx_ge_0_3": 0.0,
+   "asr_words": 444,
+   "asr_wpm_full": 83.1,
+   "asr_speech_coverage_pct": 77.2,
+   "asr_pauses_ge_2s": 3,
+   "first_word_s_from_segment_start": 5.97
+  }
+ ]
+}

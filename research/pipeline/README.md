@@ -28,6 +28,24 @@ for r in csv.DictReader(open("research/top15.csv")):
 PY
 ```
 
+## Вариант 3: видео от заказчика (BalaGo Studio, VID-xxx)
+
+```bash
+pip install "scenedetect[opencv-headless]" opencv-python-headless numpy pandas soundfile torch transformers faster-whisper
+NODE_USE_ENV_PROXY=1 node studio-fetch.mjs <owner/repo> VID-001 /tmp/vid/source.mp4   # нужен STUDIO_SOURCE_TOKEN
+python research/pipeline/video_shot_metrics.py /tmp/vid/source.mp4 research/vid001/segments.json research/vid001/shots.csv
+python research/pipeline/frame_cadence.py /tmp/vid/source.mp4 research/vid001/frame_cadence.json --window 100:60
+python research/pipeline/audio_analysis.py /tmp/vid/source.mp4 research/vid001/segments.json /tmp/vid/audio   # --reuse: только пересчёт сводки
+```
+
+| Скрипт | Что считает | Что можно коммитить |
+|---|---|---|
+| `video_shot_metrics.py` | Планы (PySceneDetect), движение, почти статичные пары кадров, панорама и зум камеры (Farneback) | CSV с числами |
+| `frame_cadence.py` | Повторы кадров в движении → «на единицах / двойках», конвертация 24→25 fps | JSON с числами |
+| `audio_analysis.py` | EBU R128, AudioSet AST (речь, музыка, смех, SFX), ASR faster-whisper с метками слов | только `audio_summary.json`; `audio_tags.csv` и `asr_words.json` — локально |
+
+Видео, WAV, кадры и распознанный текст в git не добавлять.
+
 ## Правило
 
 Папку `--review-dir` не добавлять в git. В карточки серий — только короткие цитаты (≤ 2 предложений).

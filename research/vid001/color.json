@@ -1,0 +1,109 @@
+{
+ "method": "proxy 640x360 -> 1 frame/s, 160x90, OpenCV HSV. brightness = mean V; saturation = mean S; dark frame = mean V < 0.3; among pixels with S>60: warm = hue<25 or >160, blue = hue 90..130 (OpenCV 0..180 scale)",
+ "segments": [
+  {
+   "id": "E01",
+   "mean_brightness": 0.726,
+   "mean_saturation": 0.374,
+   "share_dark_frames_v_lt_0_3": 0.006,
+   "warm_hue_share": 0.67,
+   "blue_hue_share": 0.22
+  },
+  {
+   "id": "E02",
+   "mean_brightness": 0.49,
+   "mean_saturation": 0.56,
+   "share_dark_frames_v_lt_0_3": 0.166,
+   "warm_hue_share": 0.22,
+   "blue_hue_share": 0.628
+  },
+  {
+   "id": "E03",
+   "mean_brightness": 0.659,
+   "mean_saturation": 0.446,
+   "share_dark_frames_v_lt_0_3": 0.016,
+   "warm_hue_share": 0.433,
+   "blue_hue_share": 0.443
+  },
+  {
+   "id": "E04",
+   "mean_brightness": 0.659,
+   "mean_saturation": 0.409,
+   "share_dark_frames_v_lt_0_3": 0.012,
+   "warm_hue_share": 0.558,
+   "blue_hue_share": 0.295
+  },
+  {
+   "id": "E05",
+   "mean_brightness": 0.715,
+   "mean_saturation": 0.384,
+   "share_dark_frames_v_lt_0_3": 0.006,
+   "warm_hue_share": 0.52,
+   "blue_hue_share": 0.254
+  },
+  {
+   "id": "E06",
+   "mean_brightness": 0.701,
+   "mean_saturation": 0.379,
+   "share_dark_frames_v_lt_0_3": 0.012,
+   "warm_hue_share": 0.776,
+   "blue_hue_share": 0.159
+  },
+  {
+   "id": "E07",
+   "mean_brightness": 0.777,
+   "mean_saturation": 0.322,
+   "share_dark_frames_v_lt_0_3": 0.013,
+   "warm_hue_share": 0.439,
+   "blue_hue_share": 0.506
+  },
+  {
+   "id": "E08",
+   "mean_brightness": 0.755,
+   "mean_saturation": 0.318,
+   "share_dark_frames_v_lt_0_3": 0.006,
+   "warm_hue_share": 0.755,
+   "blue_hue_share": 0.146
+  },
+  {
+   "id": "E09",
+   "mean_brightness": 0.623,
+   "mean_saturation": 0.487,
+   "share_dark_frames_v_lt_0_3": 0.01,
+   "warm_hue_share": 0.345,
+   "blue_hue_share": 0.536
+  },
+  {
+   "id": "E10",
+   "mean_brightness": 0.631,
+   "mean_saturation": 0.324,
+   "share_dark_frames_v_lt_0_3": 0.035,
+   "warm_hue_share": 0.565,
+   "blue_hue_share": 0.251
+  },
+  {
+   "id": "E11",
+   "mean_brightness": 0.663,
+   "mean_saturation": 0.471,
+   "share_dark_frames_v_lt_0_3": 0.007,
+   "warm_hue_share": 0.391,
+   "blue_hue_share": 0.544
+  },
+  {
+   "id": "E12",
+   "mean_brightness": 0.622,
+   "mean_saturation": 0.48,
+   "share_dark_frames_v_lt_0_3": 0.017,
+   "warm_hue_share": 0.341,
+   "blue_hue_share": 0.559
+  },
+  {
+   "id": "E13",
+   "mean_brightness": 0.723,
+   "mean_saturation": 0.347,
+   "share_dark_frames_v_lt_0_3": 0.003,
+   "warm_hue_share": 0.711,
+   "blue_hue_share": 0.16
+  }
+ ]
+}
