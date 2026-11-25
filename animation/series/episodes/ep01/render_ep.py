@@ -1,4 +1,4 @@
-"""Рендер серии 1. python render_ep.py VOICE_DIR OUT_MP4 [t0 t1] [scale]"""
+"""Рендер серии 1 (версия 2). python render_ep.py VOICE_DIR OUT_MP4 [t0 t1] [scale]"""
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path[:0] = [os.path.join(HERE, "..", "..", "engine"), HERE]
