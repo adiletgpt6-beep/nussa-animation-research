@@ -1,0 +1,68 @@
+top15_rank,video_id,title_catalog,duration_s,view_count,view_count_source,decision,flags,reason
+,0RH_RarRDNo,NUSSA : SONG COMPILATION VOL. 1,400,277938743,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,kEiVJQW6nS0,NUSSA : SONG COMPILATION VOL. 4,343,217511709,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,QxbF-tXyLd4,NUSSA : MAKAN JANGAN ASAL MAKAN,142,186854959,full_metadata_exact,exclude,,"music video: description ""Kali ini Nussa hadir dalam bentuk Video Musikal""; captions are sung lyrics; storyboard shows burned-in lyric subtitles on plain background"
+,74ge7aaeM6g,NUSSA : EPISODE COMPILATION VOL.6,577,124640027,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+1,rA1UA6CvyM4,NUSSA : RARRA SAKIT,280,102086280,full_metadata_exact,include,,narrative episode
+,lDC504yGp0o,NUSSA : SONG COMPILATION VOL. 2,371,92712066,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+2,HMuxy1xS5J0,NUSSA : DAHSYATNYA BASMALAH,188,82612174,full_metadata_exact,include,,narrative episode
+,1AATKJGwaCo,NUSSA : SONG COMPILATION VOL. 3,318,75657511,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+3,sghAqhta08E,NUSSA : #BaikItuMudah,413,74902366,full_metadata_exact,include,sponsored:Bukalapak,narrative episode with Bukalapak voucher card + app placement
+,rTi9b0gJMFU,NUSSA : 25 NABI,193,73853547,full_metadata_exact,exclude,,song (karaoke): storyboard shows burned-in lyrics listing prophets names; no id captions
+4,cXudgA53afQ,NUSSA: LEARN SALES,390,70517766,full_metadata_exact,include,,narrative episode
+5,_z_v7kntXS8,NUSSA : JADI SUKA SAYUR,310,69727873,full_metadata_exact,include,sponsored:Bukalapak,narrative episode; Bukalapak voucher in description and end card
+6,syvQ4lKA-GY,NUSSA : JANGAN BOROS,283,68732841,full_metadata_exact,include,,narrative episode
+,IGXpx5ohTdw,NUSSA : BULAN HIJRIAH PENUH BERKAH,164,66402319,full_metadata_exact,exclude,,song: captions are sung list of Hijri month names + rap; no plot
+,X1Aec-UC2UI,NUSSA : ADZAN,195,65453124,full_metadata_exact,exclude,,recitation clip: ASR = adhan formulas only; storyboard shows Arabic adhan text with translation and illustrative vignettes; no plot/dialogue
+7,DWCCrq_RCKY,NUSSA :  LOMBA TRAKTIR,292,65324287,full_metadata_exact,include,,narrative episode
+8,Cxdx5vibsTg,"NUSSA : TIDUR SENDIRI, GAK TAKUT!",209,58710647,full_metadata_exact,include,first episode,"narrative episode (description: ""Episode Perdana"")"
+,mh5gZIGqN34,NUSSA : EPISODE COMPILATION VOL.1,904,55121314,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+9,6bT83paaA8Q,NUSSA : ANTTA HILANG!!,379,54080539,full_metadata_exact,include,,narrative episode
+,d7LJU5algI8,NUSSA : CINTAI IBU DAN AYAH,219,53010677,full_metadata_exact,exclude,,song video: storyboard shows burned-in lyric subtitles over live-action family footage; no id captions
+10,3ZeKjAe2cjE,NUSSA : BUNDAKU,1014,49098087,full_metadata_exact,include,special; collab:KOTAK (music video at end),"single narrative (~12:17) + appended song MV ""Bundaku"" (nussa X KOTAK); counted for its narrative part"
+11,OBS_QZeEImY,NUSSA : JANGAN KALAH SAMA SETAN,241,48128936,full_metadata_exact,include,,narrative episode
+12,PfIuJwcl60E,NUSSA SHORT MOVIE SPECIAL EDITION: ‘KAMU… ANTTA',1079,43272832,full_metadata_exact,include,special (short movie),single-narrative short movie (17:59)
+,Pv3lk_epCDg,NUSSA : EPISODE COMPILATION VOL.7,890,42503206,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+13,3CYz8zwZ5Kg,NUSSA : TEMAN BARU RARRA,330,40710342,full_metadata_exact,include,,narrative episode (Eid al-Adha)
+,HuEm-0CVZhM,NUSSA : EPISODE COMPILATION VOL.14,913,38530895,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,JYRgjENNkw8,NUSSA : RUKUN ISLAM,192,37551602,full_metadata_exact,exclude,,song (karaoke): storyboard shows burned-in lyrics and character grid; no id captions
+,JRSQCHtBCp0,NUSSA : EPISODE COMPILATION VOL.8,875,36525964,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,XJqB6_uL5Fc,NUSSA : HURUF HIJAIYAH,169,35386752,full_metadata_exact,exclude,,"song (karaoke): storyboard shows burned-in lyrics, letters animation; only 2 spoken id lines"
+,RyzmhB-oMmk,NUSSA : EPISODE COMPILATION VOL.10,999,33869954,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+14,6eyXM45wC6Q,NUSSA : CHEF RARRA,370,33516014,full_metadata_exact,include,,narrative episode
+15,-5LNffQwITE,NUSSA SPECIAL : NUSSA BISA,694,33000000,flat_rounded,include,special,"single long narrative special (title ""NUSSA SPECIAL : NUSSA BISA""); exact metadata pending - not yet verified"
+,LboKlAG5cek,NUSSA : VIRAL!!! - BERSIH KOTA KITA BERSIH INDONESIA,366,31827151,full_metadata_exact,include_but_outside_top15,,narrative episode (cleanliness campaign theme); rank 16 — outside top-15 after scope change (2026-11-25)
+,Muy35hnlF1E,NUSSA : JUM'AT HARI RAYA,121,30726399,full_metadata_exact,exclude,,"musical: description ""episode Musikal""; no id captions"
+,tPrXexNi18A,NUSSA : BUKAN MAHRAM,320,29577968,full_metadata_exact,include_but_outside_top15,sponsored:Bukalapak,narrative episode; Bukalapak voucher in description; rank 17 — outside top-15 after scope change (2026-11-25)
+,kuKyZWS9mag,NUSSA : BERKATA BAIK ATAU DIAM,181,29335929,full_metadata_exact,exclude,,"song: description ""lagi nyanyi bareng""; no id captions"
+,MjztBcd3WnE,"NUSSA : SUDAH ADZAN, JANGAN BERISIK!!!",204,28730125,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 18 — outside top-15 after scope change (2026-11-25)
+,fiDJgUlvoiE,NUSSA : EPISODE COMPILATION VOL. 4,763,27828122,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,bmH0XkSbhAI,NUSSA: MERDEKA!!!,352,26769965,full_metadata_exact,include_but_outside_top15,,narrative episode (Independence Day); rank 19 — outside top-15 after scope change (2026-11-25)
+,Q47uqC9rUnM,NUSSA : HIIII SEREM!!!,381,26765823,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 20 — outside top-15 after scope change (2026-11-25)
+,20o1tLjoyo4,NUSSA : EPISODE COMPILATION VOL.3,728,24384540,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,cZ06MhPjJCw,NUSSA : EPISODE COMPILATION VOL.9,762,24012064,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,Je9FatYggI0,NUSSA : SEDIA PAYUNG SEBELUM HUJAN,176,23637948,full_metadata_exact,include_but_outside_top15,sponsored:Lifebuoy,narrative episode with Lifebuoy product placement (description + dialogue); rank 21 — outside top-15 after scope change (2026-11-25)
+,ju2VHYHQPgY,NUSSA : KAK NUSSA JANGAN TINGGALIN RARRA,317,23574436,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 22 — outside top-15 after scope change (2026-11-25)
+,MGWiestAH60,NUSSA : BERMAIN LAYANG-LAYANG,271,23063951,full_metadata_exact,include_but_outside_top15,sponsored:Tolak Angin Anak,narrative episode; Tolak Angin Anak in description/hashtags; rank 23 — outside top-15 after scope change (2026-11-25)
+,yeVvPPtV4ck,NUSSA : SIAPA KITA?,178,22172812,full_metadata_exact,include_but_outside_top15,,narrative episode (dialogue-based explainer about solar system with plot); rank 24 — outside top-15 after scope change (2026-11-25)
+,RzeraTjShcw,NUSSA : GIRLS TALK,256,21391850,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 25 — outside top-15 after scope change (2026-11-25)
+,wAjnJ0sGF3Q,NUSSA : SIKAT GIGI BULAT-BULAT,305,20639618,full_metadata_exact,include_but_outside_top15,sponsored:Pepsodent,narrative episode; Pepsodent challenge in description; ~1 min wordless demonstration (not verified by audio); rank 26 — outside top-15 after scope change (2026-11-25)
+,OWjVAUeYMcA,NUSSA : LIBUR JANGAN LALAI,288,20270987,full_metadata_exact,include_but_outside_top15,sponsored:Bukalapak,narrative episode; Bukalapak voucher in description; rank 27 — outside top-15 after scope change (2026-11-25)
+,iaiSm6S82iU,NUSSA : ADAB MINTA IZIN,173,20152527,full_metadata_exact,exclude,,"song: description ""lagi nyanyi bareng tentang adab minta izin""; no id captions"
+,o-d-7DWvLWI,NUSSA : JANGAN BICARA,237,19943610,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 28 — outside top-15 after scope change (2026-11-25)
+,kCGlJ93VXkI,NUSSA : TAK BISA BALAS,294,19937473,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 29 — outside top-15 after scope change (2026-11-25)
+,UAjMqCuCNM0,NUSSA : EPISODE COMPILATION VOL.12,689,18762115,full_metadata_exact,exclude,,compilation of multiple episodes/songs (title)
+,1d-1l7cGB2Q,NUSSA : BELAJAR IKHLAS,248,18540140,full_metadata_exact,include_but_outside_top15,,narrative episode; rank 30 — outside top-15 after scope change (2026-11-25)
+,MzuKOouEHnM,NUSSA : CUCI TANGAN YUK!,229,18460487,full_metadata_exact,exclude,sponsored:Lifebuoy,below original top-30 cut-off (rank 31 by exact views)
+,wTQK-B5pEJo,NUSSA : TETANGGAKU HEBAT,363,18382132,full_metadata_exact,exclude,,below original top-30 cut-off (rank 32 by exact views)
+,JkilHakosMM,NUSSA : SONG COMPILATION VOL. 5,336,11000000,flat_rounded,exclude,,compilation of multiple episodes/songs (title)
+,DueyoXLyZwU,NUSSA : EPISODE COMPILATION VOL.5,839,11000000,flat_rounded,exclude,,compilation of multiple episodes/songs (title)
+,ACT4tV5P59M,NEW OFFICIAL TRAILER: FILM NUSSA | DI BIOSKOP 14 OKTOBER 2021,126,9000000,flat_rounded,exclude,,trailer/teaser (title)
+,Kop7rCN6jmI,Nussa's Friend Arrives!: Official Teaser Trailer - JUMBO | Coming to Cinemas in 2025,128,8643302,full_metadata_exact,exclude,,trailer/teaser (title)
+,QswY6VVEQf8,NUSSA : EPISODE COMPILATION VOL.13,664,8300000,flat_rounded,exclude,,compilation of multiple episodes/songs (title)
+,rtGo7KoAt5c,NUSSA : EPISODE COMPILATION VOL.11,673,7600000,flat_rounded,exclude,,compilation of multiple episodes/songs (title)
+,cW5yLx4K0fc,OFFICIAL TRAILER 1 - NUSSA MOVIE,124,6500000,flat_rounded,exclude,,trailer/teaser (title)
+,Lt__IsJXwkI,NUSSA : MAKAN JANGAN ASAL MAKAN (ACAPELLA VERSION),142,2884933,full_metadata_exact,exclude,,re-upload: ACAPELLA VERSION of music video QxbF-tXyLd4
+,Rp5mw6z94vg,NUSSA : BEHIND THE SCENE,828,2800000,flat_rounded,exclude,,behind-the-scenes (title)
+,Fc4M42ntDsg,NUSSA: OFFICIAL LYRICS VIDEO 'HADIRNYA KAMU' - RARA SUDIRMAN,231,1081676,full_metadata_exact,exclude,,song/lyric/jingle video (title)
+,-wjSX5iFqtM,TRAILER TERBARU FILM NUSSA | SEGERA TAYANG DI BIOSKOP ONLINE 25 DESEMBER 2021,125,461000,full_metadata_exact,exclude,,trailer/teaser (title)

@@ -1,0 +1,80 @@
+{
+ "video_id": "_z_v7kntXS8",
+ "duration_s": 310,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "200",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 54,
+ "manual_id_word_count": 336,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 57,
+ "word_count": 287,
+ "non_speech_markers": [
+  "[Musik]"
+ ],
+ "non_speech_marker_count": 1,
+ "first_speech_s": 1.01,
+ "last_speech_s": 308.89,
+ "wpm_over_full_duration": 55.5,
+ "speech_active_s": 183.9,
+ "wpm_over_active_speech": 93.7,
+ "pauses_ge_3s": 14,
+ "longest_pauses": [
+  [
+   7.8,
+   20.0
+  ],
+  [
+   293.5,
+   13.6
+  ],
+  [
+   271.8,
+   7.6
+  ],
+  [
+   96.1,
+   6.5
+  ],
+  [
+   261.0,
+   5.5
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 2,
+ "words_first_10s": 5,
+ "words_first_30s": 7,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "160x90",
+ "storyboard_interval_s": 4.92,
+ "storyboard_frames": 63,
+ "frame_diff_mean": 44.0,
+ "frame_changes_gt25": 46,
+ "manual_lines": 53,
+ "manual_words_excl_labels": 285,
+ "manual_first_line_s": 34.28,
+ "manual_question_marks": 12,
+ "manual_exclamation_marks": 0,
+ "manual_words_by_speaker_label": {
+  "Umma": 111,
+  "Nussa": 93,
+  "Rarra": 81
+ },
+ "ns_id": "NS-005",
+ "view_count": 69727873,
+ "upload_date": "20190411",
+ "sponsor": "Bukalapak (voucher card, description T&C, opening 'MEMPERSEMBAHKAN' card)",
+ "storyboard_frames_viewed": 63,
+ "story_start_s_approx": 25,
+ "distinct_shots_story_lower_bound": 48,
+ "avg_shot_len_story_s_upper_bound": 5.1,
+ "source_named": "Al-An'am 99",
+ "shot_count_precision_note": "storyboard step ~4.9 s",
+ "analysis_completeness_pct": 40
+}

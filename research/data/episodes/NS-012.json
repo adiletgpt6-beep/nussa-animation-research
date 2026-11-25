@@ -1,0 +1,95 @@
+{
+ "video_id": "PfIuJwcl60E",
+ "duration_s": 1079,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "200",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 275,
+ "manual_id_word_count": 1413,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 261,
+ "word_count": 958,
+ "non_speech_markers": [
+  "[Musik]"
+ ],
+ "non_speech_marker_count": 13,
+ "first_speech_s": 3.0,
+ "last_speech_s": 1048.24,
+ "wpm_over_full_duration": 53.3,
+ "speech_active_s": 586.4,
+ "wpm_over_active_speech": 98.0,
+ "pauses_ge_3s": 55,
+ "longest_pauses": [
+  [
+   457.8,
+   40.7
+  ],
+  [
+   651.9,
+   38.7
+  ],
+  [
+   739.0,
+   24.8
+  ],
+  [
+   706.0,
+   13.8
+  ],
+  [
+   58.3,
+   13.2
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 4,
+ "words_first_10s": 6,
+ "words_first_30s": 30,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "341x180",
+ "storyboard_interval_s": 9.9,
+ "storyboard_frames": 109,
+ "frame_diff_mean": 35.8,
+ "frame_changes_gt25": 73,
+ "manual_lines": 275,
+ "manual_words_excl_labels_approx": 998,
+ "manual_first_line_s": 3.04,
+ "manual_question_marks": 79,
+ "manual_exclamation_marks": 81,
+ "manual_words_by_speaker_label": {
+  "Rarra": 354,
+  "Nussa": 318,
+  "Umma": 184,
+  "Abba": 102,
+  "Pak Ucok": 22,
+  "Abdul": 7,
+  "chorus": 9
+ },
+ "ns_id": "NS-012",
+ "view_count": 43272832,
+ "view_count_helper_2117Z": 43272780,
+ "upload_date": "20240704",
+ "flags": [
+  "special (short movie)"
+ ],
+ "storyboard_frames_viewed": 109,
+ "letterbox": true,
+ "no_series_intro": true,
+ "structure": "frame-flashback-frame",
+ "flashback_s_approx": [
+  69,
+  857
+ ],
+ "depicts_shaitan": false,
+ "depicts_prophets_angels": false,
+ "music_markers_asr": 13,
+ "credits_show_music_producer_role": true,
+ "music_verified_by_audio": false,
+ "shot_count": "not countable (storyboard step ~9.9 s)",
+ "analysis_completeness_pct": 30
+}

@@ -1,0 +1,82 @@
+{
+ "video_id": "6eyXM45wC6Q",
+ "duration_s": 370,
+ "caption_track": "id-orig (auto-generated)",
+ "caption_http": "200",
+ "manual_subtitle_langs": [
+  "en",
+  "id"
+ ],
+ "manual_id_cues": 78,
+ "manual_id_word_count": 542,
+ "caption_track_is_plain_cues_not_asr": false,
+ "caption_track_note": "ASR with per-word timings",
+ "caption_cue_count": 66,
+ "word_count": 398,
+ "non_speech_markers": [],
+ "non_speech_marker_count": 0,
+ "first_speech_s": 0.0,
+ "last_speech_s": 351.59,
+ "wpm_over_full_duration": 64.5,
+ "speech_active_s": 259.8,
+ "wpm_over_active_speech": 91.9,
+ "pauses_ge_3s": 10,
+ "longest_pauses": [
+  [
+   13.5,
+   13.6
+  ],
+  [
+   0.0,
+   7.5
+  ],
+  [
+   334.6,
+   6.6
+  ],
+  [
+   235.5,
+   5.8
+  ],
+  [
+   60.1,
+   5.2
+  ]
+ ],
+ "question_marks": 0,
+ "exclamation_marks": 0,
+ "words_first_5s": 1,
+ "words_first_10s": 2,
+ "words_first_30s": 10,
+ "storyboard_format": "sb0",
+ "storyboard_frame_px": "160x90",
+ "storyboard_interval_s": 4.93,
+ "storyboard_frames": 75,
+ "frame_diff_mean": 45.5,
+ "frame_changes_gt25": 50,
+ "manual_lines": 78,
+ "manual_words_excl_labels": 449,
+ "manual_first_line_s": 27.16,
+ "manual_question_marks": 16,
+ "manual_exclamation_marks": 35,
+ "manual_words_by_speaker_label": {
+  "Rarra": 212,
+  "Umma": 172,
+  "Tv Host": 65
+ },
+ "ns_id": "NS-014",
+ "rank_provisional": "14 or 15 (vs -5LNffQwITE)",
+ "view_count": 33516014,
+ "upload_date": "20201105",
+ "storyboard_frames_viewed": 75,
+ "story_start_s_approx": 27,
+ "distinct_shots_story_lower_bound": 55,
+ "avg_shot_len_story_s_upper_bound": 5.9,
+ "nussa_appears": false,
+ "depicts_shaitan": true,
+ "depicts_prophets_angels": false,
+ "music_markers_asr": 0,
+ "music_verified_by_audio": false,
+ "shot_count_precision_note": "storyboard step ~4.9 s",
+ "analysis_completeness_pct": 40
+}
