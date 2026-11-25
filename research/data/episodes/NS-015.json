@@ -1,0 +1,28 @@
+{
+ "ns_id": "NS-015",
+ "video_id": "-5LNffQwITE",
+ "title_flat": "NUSSA SPECIAL : NUSSA BISA",
+ "duration_s": 694,
+ "view_count": 33000000,
+ "view_count_source": "flat-playlist rounded display value (not exact)",
+ "upload_date": null,
+ "collected_at_utc": "2026-11-24T21:20:00Z",
+ "flags": [
+  "special"
+ ],
+ "rank_provisional": "14 or 15 (vs 6eyXM45wC6Q)",
+ "metadata_exact": false,
+ "captions_obtained": false,
+ "storyboard_obtained": false,
+ "thumbnail_viewed": "hq720 720x404",
+ "blocked_reason": "YouTube bot check (not circumvented, per project rules); retries stopped after scope reduction",
+ "thumbnail_observations": [
+  "sepia scene: woman in hijab (likely Umma) with hands on Nussa's shoulders",
+  "Nussa wears backpack and white cap",
+  "text 'Nussa Bisa!!' with nussa logo on green/yellow graphic"
+ ],
+ "depicts_shaitan": null,
+ "depicts_prophets_angels": null,
+ "music_markers_asr": null,
+ "analysis_completeness_pct": 3
+}
