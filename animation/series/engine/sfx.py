@@ -258,3 +258,72 @@ def amb_drips(dur, seed=0):
         i = int(rng.uniform(0, dur - 0.1) * SR); m = int(0.06 * SR)
         x[i:i + m] += np.sin(2 * np.pi * rng.uniform(900, 1600) * _t(m) * (1 + 2 * _t(m))) * _env(m, 0.0005, 0.012) * 0.08
     return x
+
+
+# ---- дом и сад (серия 1, версия 2): мягкие бытовые звуки
+def paper(seed=0, dur=0.5):
+    n = int(dur * SR)
+    rng = np.random.default_rng(seed)
+    x = _f(_n(n, seed), 1500, 8000) * 0.05
+    env = np.zeros(n)
+    for k in range(8):
+        i = int(rng.uniform(0, dur - 0.06) * SR); m = int(0.05 * SR)
+        env[i:i + m] += np.hanning(m) * rng.uniform(0.4, 1.0)
+    return x * env * 2.0
+
+
+def click(seed=0):
+    n = int(0.06 * SR)
+    return _f(_n(n, seed), 1200, 6000) * _env(n, 0.0003, 0.006) * 0.5 + np.sin(2 * np.pi * 900 * _t(n)) * _env(n, 0.0005, 0.01) * 0.2
+
+
+def scribble(seed=0, dur=0.8):
+    n = int(dur * SR)
+    t = _t(n)
+    return _f(_n(n, seed), 2500, 7000) * (0.5 + 0.5 * np.sin(2 * np.pi * 9 * t)) ** 2 * 0.06
+
+
+def drips(seed=0, dur=1.6, n_drops=7):
+    n = int(dur * SR)
+    x = np.zeros(n)
+    rng = np.random.default_rng(seed)
+    for k in range(n_drops):
+        i = int(rng.uniform(0, dur - 0.08) * SR); m = int(0.07 * SR)
+        x[i:i + m] += np.sin(2 * np.pi * rng.uniform(700, 1400) * _t(m) * (1 + 2.5 * _t(m))) * _env(m, 0.0004, 0.014) * 0.16
+        x[i:i + m] += _f(_n(m, seed + k), 300, 2000) * _env(m, 0.0005, 0.01) * 0.05
+    return x
+
+
+def slosh(seed=0, dur=0.6):
+    n = int(dur * SR)
+    t = _t(n)
+    return _f(_n(n, seed), 200, 1800) * np.sin(np.pi * t / dur) ** 2 * (0.6 + 0.4 * np.sin(2 * np.pi * 5 * t)) * 0.12
+
+
+def pop_soft(seed=0):
+    """Нежный мультяшный «чпок» (росток показался)."""
+    n = int(0.25 * SR)
+    t = _t(n)
+    f = 500 + 900 * t / 0.25
+    return np.sin(2 * np.pi * np.cumsum(f) / SR) * _env(n, 0.002, 0.06) * 0.18
+
+
+def amb_room(dur, seed=0):
+    """Тихая комната: лёгкий фон и редкие птицы за окном (приглушённо)."""
+    n = int(dur * SR)
+    x = _f(_n(n, seed), 60, 400) * 0.006
+    birds = amb_morning(dur, seed + 3)
+    return x + _f(birds, None, 3000) * 0.45
+
+
+def amb_breeze(dur, seed=0):
+    """Лёгкий ветерок и шелест листьев (без резких порывов)."""
+    n = int(dur * SR)
+    t = _t(n)
+    mod = 0.55 + 0.45 * np.sin(2 * np.pi * 0.17 * t + seed)
+    rustle = _f(_n(n, seed + 1), 2500, 7000) * (0.5 + 0.5 * np.sin(2 * np.pi * 0.9 * t)) ** 4 * 0.02
+    return _f(_n(n, seed), 120, 900) * mod * 0.05 + rustle
+
+
+def amb_soft_rain(dur, seed=0):
+    return amb_rain(dur, seed) * 0.45

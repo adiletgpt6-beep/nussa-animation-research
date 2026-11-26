@@ -169,9 +169,10 @@ class Character:
         k = 0.88 if far else 1.0
         hp_, kn, an = J["hp_" + side], J["kn_" + side], J["an_" + side]
         pant = shade(d.legwear, 0.86) if far else d.legwear
-        path, C = tube([hp_, kn, an], [d.thigh_w * u, d.knee_w * u, d.ankle_w * u], n=22)
         D = Draw(c)
-        D.shape(path, pant, line=shade(d.legwear, 0.55), lw=lw, shadow=(-0.05 * u * p.get('face', 1), -0.04 * u, shade(pant, 0.8), 0.03 * u))
+        path, C = tube([hp_, kn, an], [d.thigh_w * u, d.knee_w * u, d.ankle_w * u], n=22)
+        if not getattr(d, "hide_legs", False):
+            D.shape(path, pant, line=shade(d.legwear, 0.55), lw=lw, shadow=(-0.05 * u * p.get('face', 1), -0.04 * u, shade(pant, 0.8), 0.03 * u))
         # обувь
         fa = p.get("foot_ang_" + side, 0.0)
         c.save()
@@ -223,7 +224,7 @@ class Character:
         D = Draw(c)
         neck = smooth_path([(-R * 0.26, R * 0.55), (R * 0.24, R * 0.55), (R * 0.22, R * 1.25), (-R * 0.22, R * 1.25)], tension=0.3)
         c.drawPath(neck, paint(shade(d.skin, 0.85)))
-        if hasattr(d, "draw_head_back"):
+        if hasattr(d, "draw_head_back") and not p.get("back"):
             d.draw_head_back(c, R, t, p, lw)
         # форма головы: круг + щёки + подбородок, смещённые по yaw
         pts = []
@@ -242,9 +243,15 @@ class Character:
                 light=(R * 0.08 * f, R * 0.08, (255, 240, 225), R * 0.06))
         # ухо
         ex = math.sin(-1.65 + t * 1.15) * R * d.head_wx * 0.95
-        if math.cos(-1.65 + t * 1.15) > -0.25 and not getattr(d, "hide_ears", False):
+        if math.cos(-1.65 + t * 1.15) > -0.25 and not getattr(d, "hide_ears", False) and not p.get("back"):
             ear = smooth_path(ellipse_pts(ex, R * 0.12, R * 0.13, R * 0.19, 14))
             D.shape(ear, d.skin, line=shade(d.skin, 0.62), lw=lw)
+        if p.get("back"):
+            # вид со спины: лица нет, причёска/платок закрывают голову
+            if hasattr(d, "draw_head_backview"):
+                d.draw_head_backview(c, R, t, p, lw)
+            c.restore()
+            return
         st = dict(p.get("face_st", {}))
         if "mouth" not in st:
             st["mouth"] = mouth_vec({"X": 1})

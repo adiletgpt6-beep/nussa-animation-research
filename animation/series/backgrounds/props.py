@@ -143,11 +143,13 @@ def blanket_draw(c, x, y, w, h, color=(120, 160, 220)):
         D.stroke([(x + w * (0.15 + 0.2 * k), y + h * 0.1), (x + w * (0.12 + 0.2 * k), y + h * 0.95)], (255, 255, 255), 3, alpha=0.5)
 
 
-def sunflower_pot(c, x, y, stage, P, lit, wind=0.0, t=0.0, scale=1.2, sparkle=0.0, soil_hole=0.0, water=0.0):
+def sunflower_pot(c, x, y, stage, P, lit, wind=0.0, t=0.0, scale=1.2, sparkle=0.0, soil_hole=0.0, water=0.0, pot=True, stick=0.0, ribbon=0.0):
     """Горшок с подсолнухом. stage: 0 — только земля, 1 — росток, 2 — 4 листа, 3 — по колено,
     4 — по плечо, 5 — бутон, 6 — цветок. Непрерывные значения дают анимацию роста."""
     D = Draw(c)
     s = scale
+    if not pot:
+        return sunflower_ground(c, x, y, stage, P, lit, wind, t, s, sparkle, soil_hole, water, stick, ribbon)
     color = (198, 108, 72)
     body = poly_path([(x - 48 * s, y - 84 * s), (x + 48 * s, y - 84 * s), (x + 36 * s, y), (x - 36 * s, y)])
     c.drawOval(skia.Rect(x - 60 * s, y - 10 * s, x + 60 * s, y + 10 * s), paint((40, 30, 40), 0.25, blur=8))
@@ -165,6 +167,11 @@ def sunflower_pot(c, x, y, stage, P, lit, wind=0.0, t=0.0, scale=1.2, sparkle=0.
         if water > 1.0:  # переливается через край
             for k in range(3):
                 D.tapered([(x + (-40 + 40 * k) * s, y - 86 * s), (x + (-44 + 44 * k) * s, y - 40 * s)], 5 * s, 2 * s, (120, 180, 240), alpha=0.8)
+    _plant_part(c, x, y, stage, P, lit, wind, t, s, sparkle)
+
+
+def _plant_part(c, x, y, stage, P, lit, wind, t, s, sparkle):
+    D = Draw(c)
     if stage <= 0.02:
         return
     top = (x, y - 92 * s)
@@ -287,3 +294,74 @@ def tears(c, x, y, t, k=1.0):
     for i in range(2):
         ph = (t * 1.3 + i * 0.5) % 1.0
         c.drawCircle(x + i * 4, y + ph * 40, 5 * k * (1 - ph * 0.5), paint((150, 210, 255), 0.85 * (1 - ph)))
+
+
+def sunflower_ground(c, x, y, stage, P, lit, wind=0.0, t=0.0, s=1.0, sparkle=0.0, soil_hole=0.0, water=0.0, stick=0.0, ribbon=0.0):
+    """Подсолнух в грядке: холмик земли, мокрое пятно после полива, колышек и мятная ленточка-бант."""
+    D = Draw(c)
+    mound = smooth_path([(x - 70 * s, y), (x - 40 * s, y - 16 * s), (x, y - 22 * s), (x + 40 * s, y - 16 * s), (x + 70 * s, y)], tension=0.5)
+    D.shape(mound, lit((104, 72, 52), P), line=lit((70, 48, 36), P), lw=1.6)
+    if water > 0:
+        c.drawOval(skia.Rect(x - 60 * s, y - 20 * s, x + 60 * s, y - 2 * s), paint(lit((60, 40, 30), P), 0.7 * min(1, water)))
+    if soil_hole > 0:
+        c.drawOval(skia.Rect(x - 18 * s, y - 22 * s, x + 18 * s, y - 12 * s), paint((40, 26, 20), soil_hole))
+    if stick > 0:
+        D.shape(poly_path([(x + 26 * s, y - 10 * s), (x + 32 * s, y - 10 * s), (x + 32 * s, y - 300 * s * stick), (x + 26 * s, y - 300 * s * stick)]),
+                lit((176, 130, 84), P), line=lit((110, 76, 50), P), lw=1.6)
+    # стебель: переиспользуем рост из горшечной версии со смещённой «землёй»
+    c.save(); c.translate(0, 92 * s - 18 * s)
+    _sf_plant(c, x, y, stage, P, lit, wind, t, s, sparkle)
+    c.restore()
+    if ribbon > 0 and stage >= 2:
+        by = y - 150 * s
+        sway = math.sin(t * 1.7) * 0.03 + wind * (0.25 + 0.1 * math.sin(t * 7))
+        bx = x + 14 * s + sway * 60 * s
+        k = min(1.0, ribbon)
+        mint = (120, 206, 180)
+        for side in (-1, 1):
+            loop = smooth_path([(bx, by), (bx + side * 26 * s * k, by - 14 * s * k), (bx + side * 30 * s * k, by + 6 * s * k)], tension=0.6)
+            D.shape(loop, lit(mint, P), line=lit((60, 130, 110), P), lw=1.6)
+            D.tapered([(bx, by + 2 * s), (bx + side * 12 * s, by + 26 * s * k + math.sin(t * 5 + side) * 3 * s * wind)], 6 * s, 2 * s, lit(mint, P))
+        c.drawCircle(bx, by, 6 * s, paint(lit((96, 186, 160), P)))
+
+
+def _sf_plant(c, x, y, stage, P, lit, wind, t, s, sparkle):
+    """Растение без горшка (координаты как у sunflower_pot: земля на y - 92*s)."""
+    _plant_part(c, x, y, stage, P, lit, wind, t, s, sparkle)
+
+
+def magnifier(scale=1.0):
+    def f(c, pos, ang, u):
+        c.save(); c.translate(*pos); c.rotate(math.degrees(ang) - 90)
+        s = u * 0.0042 * scale
+        D = Draw(c)
+        D.shape(poly_path([(-9 * s, 0), (9 * s, 0), (8 * s, 70 * s), (-8 * s, 70 * s)]), (120, 76, 50), line=(70, 44, 30), lw=2)
+        c.drawCircle(0, 112 * s, 44 * s, paint((200, 230, 245), 0.55))
+        c.drawCircle(0, 112 * s, 44 * s, paint((60, 60, 70), style="stroke", width=9 * s))
+        D.tapered([(-22 * s, 96 * s), (-8 * s, 84 * s)], 4 * s, 2 * s, (255, 255, 255), alpha=0.8)
+        c.restore()
+    return f
+
+
+def towel(color=(250, 214, 150)):
+    def f(c, pos, ang, u):
+        c.save(); c.translate(*pos); c.rotate(math.degrees(ang) - 90)
+        s = u * 0.004
+        D = Draw(c)
+        pth = smooth_path([(-30 * s, -6 * s), (30 * s, -8 * s), (36 * s, 60 * s), (6 * s, 90 * s), (-34 * s, 70 * s)], tension=0.5)
+        D.shape(pth, color, line=shade(color, 0.6), lw=2)
+        for k in range(3):
+            D.stroke([(-28 * s, (10 + 20 * k) * s), (30 * s, (8 + 20 * k) * s)], shade(color, 0.8), 2, alpha=0.6)
+        c.restore()
+    return f
+
+
+def ribbon_hand():
+    def f(c, pos, ang, u):
+        c.save(); c.translate(*pos)
+        s = u * 0.004
+        D = Draw(c)
+        for k, dx in enumerate((-1, 1)):
+            D.tapered([(0, 0), (dx * 18 * s, 30 * s), (dx * 8 * s, 60 * s)], 7 * s, 3 * s, (120, 206, 180))
+        c.restore()
+    return f

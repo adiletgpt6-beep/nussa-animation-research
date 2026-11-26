@@ -30,11 +30,23 @@
 - R2: ключи в окружении не принимаются (длина ключа 14 вместо 32) — видео переданы через страницу-артефакт и файлы в чате.
 - Следующий шаг (по решению заказчика): этап 1 — дизайн двух героев художником, голоса актёров, захват движения.
 
-## Серия 1 «Сад на крыше» — 25.11.2026
-- Код и документы: `animation/series/README.md`. Видео в git нет: приватная страница-артефакт https://claude.ai/artifact/XWDk8WektAAhE7x8cNBbqP (просмотр + скачивание MP4, SHA-256 в `episodes/ep01/QC_REPORT.md`).
-- Движок: Python + skia-python (2D-вектор), без GPU ~0,2 с/кадр. Голоса: `library/voices/voices.json` (закреплены).
-- Расход ElevenLabs: 689 кредитов (журналы `episodes/ep01/voice_meta/cost_*.jsonl`). Баланс через API не виден (у ключа нет `user_read`).
-- Перед публикацией: подпись устаза (`episodes/ep01/USTAZ_REVIEW.md`).
+## Серия 1, версия 1 «Сад на крыше» — 25.11.2026 (для сравнения)
+- Код: `animation/series/episodes/ep01_v1_roof/`. Видео — на странице-артефакте https://claude.ai/artifact/XWDk8WektAAhE7x8cNBbqP.
+- Расход ElevenLabs: 689 кредитов.
+
+## Серия 1, версия 2 — семья Самира и Ясмины — 25.11.2026
+- Правила сериала: `animation/series/library/SERIES_RULES.md`; герои: `library/CHARACTERS.md`; локации: `library/LOCATIONS.md`.
+- Что изменено: `animation/series/episodes/ep01/IMPROVEMENTS.md`; QC: `episodes/ep01/QC_REPORT.md`.
+- Видео в git нет: https://claude.ai/artifact/DMUJwReAr2S35BAXmTRoDc (просмотр, скачивание MP4, пробы голосов), SHA-256 в QC_REPORT.md.
+- Голоса закреплены (`library/voices/voices.json`), кастинг — `casting.json`.
+- Расход ElevenLabs, версия 2: 964 кредита (кастинг 414, серия 550).
+- Внешние сервисы:
+  - OpenAI (модель-«слушатель») недоступен: нет кредитов, пополнение не выполнялось;
+  - R2 по-прежнему не принимает ключ (длина 14 вместо 32).
+- Перед публикацией нужны:
+  - прослушивание озвучки заказчиком;
+  - подпись устаза (`USTAZ_REVIEW.md`);
+  - утверждение рабочего названия «Самир и Ясмина».
 
 ## Следующий этап (только после решения заказчика)
 `production/DEVELOPMENT_PLAN.md`: Gate 1 — концепция мира и название → Gate 2 — герои → Gate 3 — голоса (бюджет) → Gate 4 — сценарий → Gate 5 — технический прототип анимации → …

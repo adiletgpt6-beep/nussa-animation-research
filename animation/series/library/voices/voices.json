@@ -1,10 +1,35 @@
 {
-  "model": "eleven_v3",
-  "language_code": "ru",
-  "note": "Закреплённые голоса героев для всех серий. Голоса из ElevenLabs Voice Library (взрослые исполнители), free_users_allowed=true. Детские роли — взрослые женские голоса (как в традиции русской анимации). Кастинг 25.11.2026: пробы и метрики — casting.json.",
-  "voices": {
-    "alsu":  {"voice_id": "TeHM1srC510U976rvUis", "library_name": "Zlata Belova - Quick, Bright & ...", "settings": {"stability": 0.5}, "why": "самый высокий тон (F0 ≈ 315 Гц), яркая энергичная подача, распознавание без ошибок"},
-    "aidar": {"voice_id": "AjEpjoSyR9hKjsuhr6w8", "library_name": "Anastasiya Kim", "settings": {"stability": 0.5}, "why": "низкий хрипловатый женский голос (F0 ≈ 219 Гц) — «мальчишеский» тембр, отличается от Алсу"},
-    "nuria": {"voice_id": "ZgfahluxUmUzBjjL81NN", "library_name": "Babushka Valya - Grandma Story", "settings": {"stability": 0.5}, "why": "настоящий голос пожилой русской женщины, мягкий и неторопливый (F0 ≈ 196 Гц)"}
+ "model": "eleven_v3",
+ "language_code": "ru",
+ "settings": {
+  "stability": 0.5,
+  "similarity_boost": 0.75
+ },
+ "note": "Закреплено 25.11.2026 для сериала (семья: Самир, Ясмина, мама Лейла). Не менять без решения заказчика. Голоса из Voice Library ElevenLabs (взрослые исполнители).",
+ "voices": {
+  "yasmina": {
+   "name": "Nataly - Youthful, Gentle and Cute",
+   "voice_id": "NhY0kyTmsKuEpHvDMngm",
+   "reserve": {
+    "name": "Lunya - Little Fairy",
+    "voice_id": "rSfuQoQ3FY8SVKeraMAp"
+   }
+  },
+  "samir": {
+   "name": "Viktoriia - Energetic and Inviting",
+   "voice_id": "8M81RK3MD7u4DOJpu2G5",
+   "reserve": {
+    "name": "Kristina Denophine",
+    "voice_id": "qbPvSCJsaNwBtXokMmwm"
+   }
+  },
+  "leyla": {
+   "name": "Kari - Friendly, Warm and Engaging",
+   "voice_id": "Jbte7ht1CqapnZvc4KpK",
+   "reserve": {
+    "name": "Marina - Soft, Clear and Warm",
+    "voice_id": "ymDCYd8puC7gYjxIamPt"
+   }
   }
+ }
 }

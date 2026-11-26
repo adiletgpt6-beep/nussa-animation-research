@@ -12,7 +12,7 @@ DEFAULTS = dict(x=0.0, y=0.0, u=150.0, face=1, crouch=0.0, lean=0.0, hip_x=0.0, 
                 brow_up=0.0, brow_inner=0.0, brow_asym=0.0, squint=0.0, wide=0.0, lid=0.0,
                 smile=0.25, frown=0.0, look_x=0.3, look_y=0.0, blush=0.0, sx=1.0, sy=1.0,
                 walk=1.0, breath=1.0, open_mouth=0.0, tears=0.0, visible=1.0, z=0.0)
-DISCRETE = ("hand_n", "hand_f", "mouth_shape", "hold_n", "hold_f", "pose", "face", "visible")
+DISCRETE = ("hand_n", "hand_f", "mouth_shape", "hold_n", "hold_f", "pose", "face", "visible", "back")
 
 
 class Actor:
@@ -31,6 +31,11 @@ class Actor:
         self._gait = None
         self._springs = {"scarf": Spring(40, 5), "hair": Spring(55, 6), "dress": Spring(45, 6)}
         self._prev = None
+        self.listen = []      # (t0, t1, actor) — кого слушает (взгляд, кивки)
+        self.others = {}
+        st = dict(noise=1.0, nod=1.0, bob=1.0, swing=1.0, listen=1.0)
+        st.update(self.extra.get("style", {}))
+        self.style = st
 
     # ---- запись ключей
     def k(self, t, e="inout", **vals):
@@ -81,7 +86,7 @@ class Actor:
             p["foot_f"] = ((ffx - x) * face / u - 0.06, -ffl / u)
             p["foot_ang_n"] = -0.25 * (fnl / 30.0)
             p["foot_ang_f"] = -0.25 * (ffl / 30.0)
-        bobw = (0.035 + 0.04 * runb) * abs(math.sin(2 * math.pi * ph)) if walking else 0.0
+        bobw = (0.035 + 0.04 * runb) * abs(math.sin(2 * math.pi * ph)) * self.style["bob"] if walking else 0.0
         # дыхание
         br = math.sin(2 * math.pi * t * (0.28 + 0.25 * self.extra.get("breath_fast", 0))) * 0.012 * T["breath"]
         p["crouch"] = T["crouch"] + bobw * 0.6
@@ -89,7 +94,7 @@ class Actor:
         p["lean"] = T["lean"] + (0.10 + 0.18 * runb) * (1 if walking else 0)
         p["hip_x"] = T["hip_x"]
         sw = math.sin(2 * math.pi * ph) if walking else 0.0
-        amp = 0.35 + 0.55 * runb
+        amp = (0.35 + 0.55 * runb) * self.style["swing"]
         p["arm_n"] = T["arm_n"] + sw * amp * (1 - T["arm_ik_n"])
         p["arm_f"] = T["arm_f"] - sw * amp * (1 - T["arm_ik_f"])
         p["elbow_n"] = T["elbow_n"] + 0.9 * runb * (1 if walking else 0)
@@ -103,9 +108,21 @@ class Actor:
             if T.get("hold_" + s):
                 p["hold_" + s] = T["hold_" + s]
         # голова: кивки на ударных гласных, лёгкий шум
-        nod = sum(0.05 * math.exp(-((t - s0 - 0.05) / 0.08) ** 2) for s0 in self._stress if abs(t - s0) < 0.3)
-        noise = math.sin(t * 1.3 + self.seed) * 0.015 + math.sin(t * 2.9 + self.seed * 2) * 0.01
-        p["head_yaw"] = T["head_yaw"] + noise * 0.5
+        nod = sum(0.05 * math.exp(-((t - s0 - 0.05) / 0.08) ** 2) for s0 in self._stress if abs(t - s0) < 0.3) * self.style["nod"]
+        noise = (math.sin(t * 1.3 + self.seed) * 0.015 + math.sin(t * 2.9 + self.seed * 2) * 0.01) * self.style["noise"]
+        # слушатель: смотрит на говорящего, мягко кивает на его ударениях
+        lk_x, lk_w, yaw_b = 0.0, 0.0, 0.0
+        if not self.talking(t) and not T.get("back"):
+            for t0, t1, other in self.listen:
+                if t0 - 0.3 <= t <= t1 + 0.6:
+                    w = min(1.0, (t - t0 + 0.3) / 0.35, (t1 + 0.6 - t) / 0.4) * self.style["listen"]
+                    dx = (other.tr["x"](t) - x) * face
+                    lk_x = max(-0.75, min(0.75, dx / 300.0))
+                    yaw_b = 0.12 * (1 if dx > 0 else -1) * min(1.0, abs(dx) / 200)
+                    lk_w = max(0.0, w) * (1 - T.get("nolisten", 0.0))
+                    nod += 0.5 * sum(0.05 * math.exp(-((t - s0 - 0.22) / 0.1) ** 2) for s0 in other._stress[::2] if abs(t - s0 - 0.2) < 0.35) * self.style["nod"]
+                    break
+        p["head_yaw"] = T["head_yaw"] + noise * 0.5 + yaw_b * lk_w
         p["head_tilt"] = T["head_tilt"] + noise + (0.03 * sw if walking else 0)
         p["head_pitch"] = T["head_pitch"] + nod * 2
         p["neck_lean"] = T["neck_lean"] + nod * 0.4
@@ -138,9 +155,11 @@ class Actor:
             mv = mv * (1 - k) + np.array(MOUTH["SMILE_OPEN"]) * k
         blink = blink_value(t, self._blinks)
         brow_talk = 0.25 * math.exp(-((t - (self._talk[0][0] if self._talk else -9)) / 0.3) ** 2) if self._talk else 0
-        p["face_st"] = dict(look=(T["look_x"], T["look_y"]), blink=blink, squint=T["squint"] + max(0, T["smile"] - 0.6) * 0.6,
+        lx = T["look_x"] * (1 - lk_w) + lk_x * lk_w
+        p["face_st"] = dict(look=(lx, T["look_y"]), blink=blink, squint=T["squint"] + max(0, T["smile"] - 0.6) * 0.6,
                             wide=T["wide"], lid=T["lid"], brow_up=T["brow_up"] + nod * 3 + brow_talk, brow_inner=T["brow_inner"],
                             brow_asym=T["brow_asym"], mouth=mv, blush=T["blush"])
         p["tears"] = T["tears"]
         p["visible"] = T["visible"]
+        p["back"] = T.get("back") or 0
         return p

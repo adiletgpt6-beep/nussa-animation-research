@@ -1,11 +1,149 @@
-{"date": "2026-11-25", "method": "по одной пробной реплике на кандидата; метрики: распознавание faster-whisper (ru), медиана F0, интонационный диапазон p10–p90 (полутоны). Голоса прослушиванием человеком не оценивались.",
- "candidates": [
-  {"role": "alsu", "name": "Mila Svetlova", "voice_id": "RxivyypsDodFBfmDDOZF", "f0_hz": 263, "range_st": 8.9, "asr_errors": "подсолнушек→подцомушек"},
-  {"role": "alsu", "name": "Zlata Belova", "voice_id": "TeHM1srC510U976rvUis", "f0_hz": 315, "range_st": 10.7, "asr_errors": "нет", "chosen": true},
-  {"role": "alsu", "name": "Allesia K (Kids)", "voice_id": "Vubu6fZDKniKINiVlQNh", "f0_hz": 287, "range_st": 12.2, "asr_errors": "нет"},
-  {"role": "aidar", "name": "Anastasiya Kim", "voice_id": "AjEpjoSyR9hKjsuhr6w8", "f0_hz": 219, "range_st": 9.3, "asr_errors": "Алсу→Алсо", "chosen": true},
-  {"role": "aidar", "name": "Marusya G", "voice_id": "YgmmbkawNYQtcjvCe8OM", "f0_hz": 269, "range_st": 11.2, "asr_errors": "нет"},
-  {"role": "aidar", "name": "Kristina Denophine", "voice_id": "qbPvSCJsaNwBtXokMmwm", "f0_hz": 207, "range_st": 17.3, "asr_errors": "Алсу→Халсу"},
-  {"role": "nuria", "name": "Babushka Valya", "voice_id": "ZgfahluxUmUzBjjL81NN", "f0_hz": 196, "range_st": 6.3, "asr_errors": "джаным→Жанны", "chosen": true},
-  {"role": "nuria", "name": "Nina", "voice_id": "N8lIVPsFkvOoqev5Csxo", "f0_hz": 233, "range_st": 21.5, "asr_errors": "джаным→Жаным"}
- ]}
+{
+ "date": "2026-11-25",
+ "roles": {
+  "sister": "yasmina",
+  "brother": "samir",
+  "mother": "leyla"
+ },
+ "method": "6 кандидатов на роль из Voice Library (ru), по 2 эмоциональные реплики (радость/грусть), eleven_v3, stability 0.5. Метрики: распознавание (faster-whisper small, WER), медианная F0 и диапазон интонации (полутоны, 5–95%), длительность, оценка возраста голоса (audeering wav2vec2 age-gender). Человеком не прослушано; модель-«слушатель» OpenAI недоступна (нет кредитов).",
+ "criteria": "сестра — моложе по оценке возраста, высокая F0, широкий диапазон, без ошибок; брат — F0 200–230 Гц (мальчишеский тембр у взрослой исполнительницы), выразительность, без монотонности; мама — тёплая низкая F0, неспешный темп, без ошибок произношения",
+ "candidates": {
+  "brother/Anastasiya": {
+   "f0": 224,
+   "range_st": 10.0,
+   "dur": 6.6,
+   "age": 29.4,
+   "wer": 0.14
+  },
+  "brother/Kristina": {
+   "f0": 197,
+   "range_st": 11.9,
+   "dur": 7.0,
+   "age": 29.0,
+   "wer": 0.07
+  },
+  "brother/Marusya": {
+   "f0": 253,
+   "range_st": 13.0,
+   "dur": 6.6,
+   "age": 36.2,
+   "wer": 0.21
+  },
+  "brother/Nadia": {
+   "f0": 226,
+   "range_st": 13.5,
+   "dur": 9.8,
+   "age": 23.1,
+   "wer": 0.28
+  },
+  "brother/Nastya": {
+   "f0": 221,
+   "range_st": 6.9,
+   "dur": 7.4,
+   "age": 26.2,
+   "wer": 0.07
+  },
+  "brother/Viktoriia": {
+   "f0": 218,
+   "range_st": 15.2,
+   "dur": 7.0,
+   "age": 29.1,
+   "wer": 0.14
+  },
+  "mother/Ekaterina": {
+   "f0": 191,
+   "range_st": 15.9,
+   "dur": 10.6,
+   "age": 21.0,
+   "wer": 0.06
+  },
+  "mother/Irina": {
+   "f0": 203,
+   "range_st": 9.4,
+   "dur": 9.1,
+   "age": 25.8,
+   "wer": 0.06
+  },
+  "mother/Kari": {
+   "f0": 167,
+   "range_st": 13.4,
+   "dur": 11.5,
+   "age": 26.9,
+   "wer": 0.0
+  },
+  "mother/Kate": {
+   "f0": 196,
+   "range_st": 12.7,
+   "dur": 12.2,
+   "age": 28.9,
+   "wer": 0.06
+  },
+  "mother/Mariia": {
+   "f0": 176,
+   "range_st": 11.6,
+   "dur": 10.0,
+   "age": 28.1,
+   "wer": 0.0
+  },
+  "mother/Marina": {
+   "f0": 156,
+   "range_st": 14.4,
+   "dur": 9.6,
+   "age": 26.2,
+   "wer": 0.06
+  },
+  "sister/Allesia": {
+   "f0": 291,
+   "range_st": 10.2,
+   "dur": 7.3,
+   "age": 25.8,
+   "wer": 0.0
+  },
+  "sister/Elena": {
+   "f0": 242,
+   "range_st": 9.6,
+   "dur": 7.5,
+   "age": 36.3,
+   "wer": 0.0
+  },
+  "sister/Lunya": {
+   "f0": 317,
+   "range_st": 17.2,
+   "dur": 9.0,
+   "age": 26.4,
+   "wer": 0.0
+  },
+  "sister/Mila": {
+   "f0": 285,
+   "range_st": 10.6,
+   "dur": 7.0,
+   "age": 31.1,
+   "wer": 0.0
+  },
+  "sister/Nataly": {
+   "f0": 298,
+   "range_st": 19.4,
+   "dur": 7.9,
+   "age": 21.9,
+   "wer": 0.0
+  },
+  "sister/Zlata": {
+   "f0": 263,
+   "range_st": 20.9,
+   "dur": 6.1,
+   "age": 39.3,
+   "wer": 0.0
+  }
+ },
+ "chosen": {
+  "sister": "Nataly",
+  "brother": "Viktoriia",
+  "mother": "Kari"
+ },
+ "rejected_reasons": {
+  "brother/Nastya": "монотонно (диапазон 6.9 пт)",
+  "brother/Nadia": "WER 0.28, растянутый темп",
+  "sister/Zlata": "оценка возраста 39 лет — голос прошлой версии звучит взрослее",
+  "sister/Elena": "оценка возраста 36"
+ }
+}
