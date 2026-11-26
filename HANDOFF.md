@@ -37,7 +37,7 @@
 ## Серия 1, версия 2 — семья Самира и Ясмины — 25.11.2026
 - Правила сериала: `animation/series/library/SERIES_RULES.md`; герои: `library/CHARACTERS.md`; локации: `library/LOCATIONS.md`.
 - Что изменено: `animation/series/episodes/ep01/IMPROVEMENTS.md`; QC: `episodes/ep01/QC_REPORT.md`.
-- Видео в git нет: ссылка на страницу-артефакт — в QC_REPORT.md.
+- Видео в git нет: https://claude.ai/artifact/DMUJwReAr2S35BAXmTRoDc (просмотр, скачивание MP4, пробы голосов), SHA-256 в QC_REPORT.md.
 - Голоса закреплены (`library/voices/voices.json`), кастинг — `casting.json`.
 - Расход ElevenLabs, версия 2: 964 кредита (кастинг 414, серия 550).
 - Внешние сервисы:
