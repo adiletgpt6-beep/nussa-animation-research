@@ -181,7 +181,12 @@ class Episode:
         preset = key.split(":")[1]
         if ins:
             t0, t1, fn = ins[-1]
-            fn(c, t, (t - t0) / max(1e-6, t1 - t0))
+            k = (t - t0) / max(1e-6, t1 - t0)
+            c.save()                       # медленный наезд камеры на вставке
+            z = 1.0 + 0.06 * k
+            c.translate(W / 2, H / 2); c.scale(z, z); c.translate(-W / 2, -H / 2)
+            fn(c, t, k)
+            c.restore()
         else:
             self.draw_world(c, t, f, key, preset)
         self.grade(c, preset)
@@ -452,6 +457,7 @@ def scene_1(E, t):
     E.cut(t0, 1760, 700, 1.35)
     t = E.line("s1_05", t0 + 0.6)
     E.insert(t - 3.4, t + 0.6, lambda c, tt, k: I.palm_seed(c, tt, k))
+    Y.k(t - 3.3, hold_n=None, hand_n="relax")          # лейку поставила (за кадром), руки свободны
     E.sfx_at(t - 2.0, "sparkle", 0.35, 0.0)
     # Ясмина — крупно: «Чудо? Настоящее?!» — руки к щекам
     t0 = t + 0.6
@@ -727,7 +733,7 @@ def scene_4(E, t):
     E.sfx_at(t + 0.3, "paper", 0.5, 0.3)
     S.k(t + 0.9, face=-1, arm_n=0.9, elbow_n=0.4, hand_n="point")
     t1 = E.line("s4_01", t + 0.9)
-    E.insert(t + 2.0, t1 + 0.2, lambda c, tt, k: I.schedule(c, tt, 0.0, 0))
+    E.insert(t + 2.0, t1 + 0.2, lambda c, tt, k: I.schedule(c, tt, 0.0, 0, hand=True, drift=k))
     E.cut(t1 + 0.2, 1560, 560, 1.9)
     Y.k(t1 + 0.2, smile=1.0, squint=0.6, arm_f=2.6, elbow_f=0.6, hand_f="open", head_tilt=0.1)   # «салют»
     t = E.line("s4_02", t1 + 0.3)
@@ -871,7 +877,7 @@ def scene_5(E, t):
     t = E.line("s5_05", t0 + 0.2)
     # Самир раскрывает зонтик над сестрой; начинается тихий дождик
     E.envk("rain", t, 0.0); E.envk("rain", t + 1.5, 1.0)
-    E.walk(S, t, t + 0.9, 1380, y=1062)
+    E.walk(S, t, t + 0.9, 1300, y=1062)
     S.k(t + 0.9, face=1, hold_n=props.umbrella(1.0, (250, 200, 90)), hand_n="grip", arm_n=2.3, elbow_n=0.6)
     E.sfx_at(t + 0.7, "umbrella_open", 0.5, 0.2)
     E.cut(t + 0.4, 1520, 700, 1.35)

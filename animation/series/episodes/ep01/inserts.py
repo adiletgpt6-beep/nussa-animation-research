@@ -245,11 +245,13 @@ def ribbon_stem(c, t, k, wind=0.6):
             sleeve_cuff(c, bx + side * (470 + pull), by + 380, 200, -side * 0.95, leyla.CARDI)
 
 
-def schedule(c, t, k, checks, hand=False):
-    """Расписание полива на холодильнике: 7 клеток с капелькой, галочки по дням (без текста)."""
+def schedule(c, t, k, checks, hand=False, drift=None):
+    """Расписание полива на холодильнике: 7 клеток с капелькой, галочки по дням (без текста).
+    drift 0..1 — медленный наезд камеры и палец Самира, который ведёт по клеточкам."""
     gradient_rect(c, (0, 0, W, H), [((250, 246, 236), 0.0), ((240, 234, 222), 1.0)])
     D = Draw(c)
-    c.save(); c.translate(W / 2, H / 2 + 20); c.rotate(-2.5)
+    dz = drift if drift is not None else k
+    c.save(); c.translate(W / 2, H / 2 + 20); c.scale(1.0 + 0.07 * dz, 1.0 + 0.07 * dz); c.rotate(-2.5)
     sheet = skia.Rect(-720, -400, 720, 420)
     c.drawRect(sheet.makeOffset(14, 18), paint((60, 50, 50), 0.15, blur=16))
     c.drawRect(sheet, paint((255, 255, 252)))
@@ -282,8 +284,12 @@ def schedule(c, t, k, checks, hand=False):
     c.drawCircle(0, -360, 36, paint((230, 80, 80)))
     c.drawCircle(-10, -370, 10, paint((255, 255, 255), 0.6))
     c.restore()
-    if hand and k < 0.5:
-        draw_hand(c, (W / 2 + 120, 120 - 300 * ease(k / 0.5 - 0.5) * 0), math.pi * 0.6, 380, HAND_PRESETS["point"], samir.SKIN, shade(samir.SKIN, 0.6))
+    if hand and drift is not None:
+        g = ease(min(1.0, drift * 1.15))
+        fx = W / 2 - 560 + 1050 * g + 20 * math.sin(t * 6)
+        fy = H / 2 + 330 + 30 * math.sin(drift * math.pi * 7) ** 2
+        draw_hand(c, (fx + 40, fy + 330), -math.pi / 2 - 0.15, 360, HAND_PRESETS["point"], samir.SKIN, shade(samir.SKIN, 0.6))
+        sleeve_cuff(c, fx + 45, fy + 380, 190, -0.15, samir.SWEAT)
 
 
 def magnifier_eye(c, t, k, ch_pose):
